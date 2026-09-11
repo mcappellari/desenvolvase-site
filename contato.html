@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato | Desenvolva-se</title>
+  <meta name="description" content="Fale com o Desenvolva-se pelo WhatsApp, Instagram ou formulário de contato." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="logo_desenvolvase_transparent.png" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><img src="logo_desenvolvase_transparent.png" alt="Logo Desenvolva-se" class="logo-img" />Desenvolva<span>-se</span></a>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li class="has-dropdown">
+            <a href="#">Sobre</a>
+            <ul class="dropdown">
+              <li><a href="quem-somos.html">Quem Somos</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">Ramos</a>
+            <ul class="dropdown">
+              <li><a href="informatica.html">Tecnologia que Transforma</a></li>
+              <li><a href="musica.html">Música</a></li>
+              <li><a href="ticonectars.html">tiConectaRS</a></li>
+              <li><a href="cadastro-alunos.html">Cadastro de Alunos</a></li>
+              <li><a href="acao-social.html">Ações Sociais</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">Envolva-se</a>
+            <ul class="dropdown">
+              <li><a href="voluntario.html">Venha ser Voluntário</a></li>
+              <li><a href="ticonectars.html#doar">Doe Computadores</a></li>
+              <li><a href="contribua.html">Doação Financeira</a></li>
+            </ul>
+          </li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+      <a href="contribua.html" class="btn btn-primary btn-small nav-cta">Doe Agora</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Contato</h1>
+      <p class="lead">Estamos em Porto Alegre - RS. Fale com a gente pelo WhatsApp, Instagram ou pelo formulário abaixo.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container grid grid-3">
+      <div class="card">
+        <div class="card-head">
+          <div class="icon-badge">💬</div>
+          <h3>WhatsApp</h3>
+        </div>
+        <p><a href="https://wa.me/5551984406121" target="_blank" rel="noopener">(51) 98440-6121</a></p>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <div class="icon-badge">📷</div>
+          <h3>Instagram</h3>
+        </div>
+        <p><a href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">@desenvolvase.projeto</a></p>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <div class="icon-badge">📍</div>
+          <h3>Localização</h3>
+        </div>
+        <p>Porto Alegre - RS</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Formulário</span>
+        <h2>Envie sua mensagem</h2>
+      </div>
+      <form class="form-card" data-sheet-form="contato">
+        <div class="form-row two-col">
+          <div>
+            <label for="ct-nome">Nome</label>
+            <input type="text" id="ct-nome" name="nome" required />
+          </div>
+          <div>
+            <label for="ct-telefone">Telefone / WhatsApp</label>
+            <input type="tel" id="ct-telefone" name="telefone" placeholder="(51) 90000-0000" />
+          </div>
+        </div>
+        <div class="form-row two-col">
+          <div>
+            <label for="ct-email">E-mail</label>
+            <input type="email" id="ct-email" name="email" required />
+          </div>
+          <div>
+            <label for="ct-assunto">Assunto</label>
+            <select id="ct-assunto" name="assunto">
+              <option value="Dúvida geral">Dúvida geral</option>
+              <option value="Imprensa">Imprensa</option>
+              <option value="Parceria">Parceria</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="ct-mensagem">Mensagem</label>
+            <textarea id="ct-mensagem" name="mensagem" rows="4" required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+        <p class="form-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="logo"><img src="logo_desenvolvase_transparent.png" alt="Logo Desenvolva-se" class="logo-img footer-logo-img" />Desenvolva<span>-se</span></p>
+        <p>Raízes fortes, futuro próspero.</p>
+        <p>Porto Alegre - RS</p>
+      </div>
+      <div>
+        <h3>Ramos</h3>
+        <ul>
+          <li><a href="informatica.html">Tecnologia que Transforma</a></li>
+          <li><a href="musica.html">Música</a></li>
+          <li><a href="ticonectars.html">tiConectaRS</a></li>
+          <li><a href="acao-social.html">Ações Sociais</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Envolva-se</h3>
+        <ul>
+          <li><a href="voluntario.html">Venha ser Voluntário</a></li>
+          <li><a href="contribua.html">Doação Financeira</a></li>
+          <li><a href="cadastro-alunos.html">Área do Aluno</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contato</h3>
+        <p><a href="https://wa.me/5551984406121" target="_blank" rel="noopener">WhatsApp: (51) 98440-6121</a></p>
+        <p><a href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">Instagram: @desenvolvase.projeto</a></p>
+        <p>CNPJ: 61.023.657/0001-69</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Desenvolva-se. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5551984406121" target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">
+    <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.607 1.902 6.47L4 29l7.72-1.858A11.94 11.94 0 0 0 16.001 27C22.63 27 28 21.627 28 15S22.63 3 16.001 3Zm6.994 16.982c-.297.836-1.47 1.53-2.406 1.727-.64.135-1.475.243-4.285-.92-3.594-1.487-5.906-5.13-6.086-5.367-.176-.238-1.457-1.938-1.457-3.696 0-1.758.92-2.622 1.246-2.98.326-.358.71-.448.947-.448.238 0 .475.002.682.012.219.01.512-.083.8.611.297.712 1.008 2.469 1.096 2.65.088.181.146.393.03.63-.117.238-.176.386-.35.594-.176.207-.37.463-.53.622-.176.176-.36.367-.155.723.207.356.918 1.517 1.973 2.457 1.356 1.207 2.5 1.582 2.855 1.76.356.176.564.148.771-.09.207-.238.887-1.034 1.125-1.39.238-.356.475-.297.8-.178.326.117 2.078.98 2.434 1.158.356.178.594.267.68.416.088.148.088.86-.208 1.697Z"/></svg>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

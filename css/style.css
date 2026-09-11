@@ -1,0 +1,1036 @@
+/* =========================================================
+   Desenvolva-se — Design System v2
+   Fundo verde vivo tirado da copa da árvore do logo; cartões
+   flutuam em creme por cima. Âmbar (tronco) marca os ramos
+   humanos, petróleo (raízes) marca os ramos de tecnologia.
+   ========================================================= */
+:root {
+  /* page-level surface (sits directly on the vivid green page) */
+  --paper: #1f6e45;
+  --paper-alt: #195c39;
+  --ink: #f7f6ea;
+  --ink-muted: rgba(247, 246, 234, 0.72);
+  --line: rgba(247, 246, 234, 0.22);
+
+  /* accents used directly on the green page */
+  --canopy: #c6e24c;
+  --canopy-deep: #9fbf35;
+  --canopy-tint: rgba(198, 226, 76, 0.18);
+  --trunk: #e08b3e;
+  --trunk-tint: rgba(224, 139, 62, 0.18);
+  --root: #22b8c0;
+  --root-tint: rgba(34, 184, 192, 0.18);
+
+  /* card-level surface (cream cards/header floating on the green page) */
+  --paper-raised: #fbf8ee;
+  --card-ink: #22231c;
+  --card-ink-muted: rgba(34, 35, 28, 0.64);
+  --card-line: rgba(34, 35, 28, 0.14);
+  --card-inset: rgba(34, 35, 28, 0.05);
+  --card-accent: #256b39;
+  --card-accent-deep: #173f22;
+  --canopy-pastel: #eaf4d8;
+  --root-pastel: #dbf1f1;
+  --trunk-pastel: #fbebdc;
+  --on-accent: #1e2a1b;
+
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --radius-l: 26px;
+  --shadow: 0 1px 2px rgba(15, 30, 20, 0.08), 0 10px 26px rgba(15, 30, 20, 0.14);
+  --shadow-lg: 0 18px 44px rgba(10, 30, 20, 0.24);
+  --container-width: 1180px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  margin: 0 0 0.6em;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 4.2vw, 3.1rem);
+}
+
+h2 {
+  font-size: clamp(1.7rem, 3.2vw, 2.2rem);
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--canopy);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 76px 0;
+}
+
+.section-alt {
+  background: var(--paper-alt);
+}
+
+.section-header {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.section-header .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  margin-bottom: 14px;
+}
+
+.section-header .eyebrow::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+/* =========================================================
+   Scroll reveal utility (progressive enhancement via JS)
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* =========================================================
+   Buttons — solid, no shimmer/gradient gimmicks. Motion is
+   just a small lift + shadow on hover.
+   ========================================================= */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--root);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--canopy);
+  color: var(--on-accent);
+}
+
+.btn-primary:hover {
+  background: var(--canopy-deep);
+  box-shadow: var(--shadow);
+}
+
+.btn-outline {
+  border-color: currentColor;
+  color: var(--ink);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--canopy);
+  color: var(--canopy);
+}
+
+/* an outline button living inside a cream card/header needs the dark card ink instead */
+.site-header .btn-outline,
+.card .btn-outline,
+.form-card .btn-outline {
+  color: var(--card-ink);
+}
+
+.site-header .btn-outline:hover,
+.card .btn-outline:hover,
+.form-card .btn-outline:hover {
+  border-color: var(--card-accent);
+  color: var(--card-accent);
+}
+
+.btn-small {
+  padding: 9px 20px;
+  font-size: 0.9rem;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* =========================================================
+   Header — a cream bar floating on the green page
+   ========================================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper-raised);
+  border-bottom: 1px solid var(--card-line);
+  transition: box-shadow 0.3s ease;
+}
+
+.site-header.scrolled {
+  box-shadow: var(--shadow);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--card-ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: var(--card-accent);
+}
+
+.logo-img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  margin-right: 10px;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.logo:hover .logo-img {
+  transform: scale(1.06);
+}
+
+.footer-logo-img {
+  height: 44px;
+  width: 44px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav > ul > li {
+  position: relative;
+}
+
+.main-nav a {
+  position: relative;
+  text-decoration: none;
+  color: var(--card-ink);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.main-nav > ul > li > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: var(--card-accent);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.main-nav a:hover {
+  color: var(--card-accent);
+}
+
+.main-nav > ul > li > a:hover::after {
+  transform: scaleX(1);
+}
+
+.has-dropdown .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-lg);
+  border-radius: 14px;
+  padding: 10px;
+  min-width: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.2s var(--ease-out), transform 0.2s var(--ease-out), visibility 0.2s;
+}
+
+.has-dropdown:hover .dropdown,
+.has-dropdown:focus-within .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(6px);
+}
+
+.has-dropdown .dropdown a {
+  padding: 9px 12px;
+  border-radius: 8px;
+  display: block;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.has-dropdown .dropdown a:hover {
+  background: var(--canopy-pastel);
+}
+
+.nav-cta {
+  white-space: nowrap;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--card-ink);
+  display: block;
+  transition: transform 0.3s var(--ease-out), opacity 0.2s ease;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================================
+   Hero — sits directly on the green page, logo in a cream frame
+   ========================================================= */
+.hero {
+  position: relative;
+  padding: 88px 0 96px;
+  background: radial-gradient(640px 380px at 92% -10%, rgba(0, 0, 0, 0.12), transparent 70%);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.hero h1 {
+  color: var(--ink);
+}
+
+.hero p.lead {
+  font-size: 1.15rem;
+  color: var(--ink-muted);
+  max-width: 46ch;
+}
+
+.hero-visual {
+  position: relative;
+  background: var(--paper-raised);
+  border-radius: var(--radius-l);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 30px;
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-logo {
+  width: 52%;
+  min-width: 140px;
+}
+
+.hero-badge {
+  background: var(--canopy-pastel);
+  color: var(--card-ink-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+}
+
+.page-hero {
+  padding: 64px 0;
+  text-align: center;
+}
+
+.page-hero .lead {
+  color: var(--ink-muted);
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================================================
+   Cards / grids
+   ========================================================= */
+.grid {
+  display: grid;
+  gap: 26px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card {
+  position: relative;
+  background: var(--paper-raised);
+  color: var(--card-ink);
+  border-radius: var(--radius-m);
+  padding: 28px 26px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card h3 {
+  color: var(--card-ink);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.card p {
+  color: var(--card-ink-muted);
+}
+
+.card a,
+.form-card a {
+  color: var(--card-accent);
+  font-weight: 600;
+}
+
+.card a:hover,
+.form-card a:hover {
+  color: var(--card-accent-deep);
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.card-head h3 {
+  margin-bottom: 0;
+}
+
+.icon-badge {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: var(--canopy-pastel);
+  color: var(--card-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+/* the four "ramo" cards on the homepage: bigger duotone icon + accent tag */
+.ramo-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.ramo-icon.tag-root {
+  background: var(--root-tint);
+  color: var(--root);
+}
+
+.ramo-icon.tag-trunk {
+  background: var(--trunk-tint);
+  color: var(--trunk);
+}
+
+.ramo-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.ramo-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 10px;
+}
+
+.ramo-tag.root {
+  color: var(--root);
+}
+
+.ramo-tag.trunk {
+  color: var(--trunk);
+}
+
+/* =========================================================
+   Stats
+   ========================================================= */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.stats > div {
+  border-left: 2px solid var(--canopy);
+  padding-left: 16px;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+}
+
+/* =========================================================
+   Timeline
+   ========================================================= */
+.timeline {
+  border-left: 2px solid var(--canopy);
+  margin-left: 10px;
+  padding-left: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -33px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--canopy);
+  border: 3px solid var(--paper);
+}
+
+.timeline-year {
+  font-weight: 700;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+/* =========================================================
+   Forms
+   ========================================================= */
+.form-card {
+  background: var(--paper-raised);
+  color: var(--card-ink);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow);
+  padding: 34px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.form-card h3 {
+  color: var(--card-ink);
+}
+
+.form-card p {
+  color: var(--card-ink-muted);
+}
+
+.form-card.accent-canopy {
+  border: 1px solid var(--canopy-deep);
+  background: var(--canopy-pastel);
+}
+
+.form-card.accent-root {
+  border: 1px solid var(--root);
+  background: var(--root-pastel);
+}
+
+.form-row {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.form-row.two-col {
+  grid-template-columns: 1fr 1fr;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+  color: var(--card-ink);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--card-line);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: #fff;
+  color: var(--card-ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--card-accent);
+  box-shadow: 0 0 0 4px var(--canopy-tint);
+}
+
+.form-status {
+  margin-top: 14px;
+  font-weight: 600;
+  display: none;
+}
+
+.form-status.success {
+  color: var(--card-accent);
+  display: block;
+}
+
+.form-status.error {
+  color: #b3261e;
+  display: block;
+}
+
+.form-status.loading {
+  color: var(--card-ink-muted);
+  display: block;
+}
+
+/* =========================================================
+   Instagram block
+   ========================================================= */
+.instagram-block {
+  text-align: center;
+}
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.instagram-grid .ph {
+  aspect-ratio: 1;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--card-ink);
+  padding: 14px;
+  text-align: center;
+  text-decoration: none;
+  background: var(--paper-raised);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.instagram-grid .ph svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--card-accent);
+}
+
+.instagram-grid .ph:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* =========================================================
+   CTA band — deeper green, before the footer
+   ========================================================= */
+.cta-band {
+  background: var(--paper-alt);
+  color: var(--ink);
+  text-align: center;
+}
+
+.cta-band h2 {
+  color: var(--ink);
+}
+
+.cta-band .btn-outline {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.cta-band .btn-outline:hover {
+  border-color: var(--canopy);
+  color: var(--canopy);
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.site-footer {
+  background: #123322;
+  color: var(--ink-muted);
+  padding-top: 56px;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+  gap: 32px;
+  padding-bottom: 32px;
+}
+
+.site-footer .logo {
+  color: var(--ink);
+}
+
+.site-footer .logo span {
+  color: var(--canopy);
+}
+
+.site-footer h3 {
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.site-footer a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: var(--canopy);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(247, 246, 234, 0.12);
+  padding: 18px 20px;
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--ink-muted);
+}
+
+/* =========================================================
+   WhatsApp floating button
+   ========================================================= */
+.whatsapp-float {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  z-index: 200;
+  transition: transform 0.2s var(--ease-out);
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.06);
+}
+
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
+
+/* decorative leaf-motif divider, reused from the logo's canopy shapes */
+.leaf-divider {
+  display: flex;
+  justify-content: center;
+  opacity: 0.9;
+  margin: 8px 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .main-nav {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: var(--paper-raised);
+    border-bottom: 1px solid var(--card-line);
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.25s var(--ease-out);
+  }
+
+  .main-nav.open {
+    grid-template-rows: 1fr;
+  }
+
+  .main-nav ul {
+    overflow: hidden;
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 20px 20px;
+  }
+
+  .main-nav > ul > li {
+    border-bottom: 1px solid var(--card-line);
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 12px 0;
+  }
+
+  .has-dropdown .dropdown {
+    position: static;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+    padding-left: 12px;
+  }
+
+  .has-dropdown.open .dropdown {
+    display: flex;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row.two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
