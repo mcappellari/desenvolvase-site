@@ -716,32 +716,20 @@ section {
   background: var(--root-pastel);
 }
 
-.vol-card.tone-root:hover {
-  box-shadow: 0 20px 44px rgba(34, 184, 192, 0.35);
-}
-
 .vol-card.tone-trunk {
   background: var(--trunk-pastel);
-}
-
-.vol-card.tone-trunk:hover {
-  box-shadow: 0 20px 44px rgba(224, 139, 62, 0.35);
 }
 
 .vol-card.tone-canopy {
   background: var(--canopy-pastel);
 }
 
-.vol-card.tone-canopy:hover {
-  box-shadow: 0 20px 44px rgba(37, 107, 57, 0.3);
-}
-
 .vol-card.tone-duo {
   background: linear-gradient(135deg, var(--canopy-pastel), var(--root-pastel));
 }
 
-.vol-card.tone-duo:hover {
-  box-shadow: 0 20px 44px rgba(34, 184, 192, 0.3);
+.vol-card:hover {
+  box-shadow: var(--shadow-lg);
 }
 
 .vol-icon {
