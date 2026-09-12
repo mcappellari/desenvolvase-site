@@ -42,6 +42,9 @@
   --trunk-bright: #f5b87a;
   /* same idea for the root teal: --root only reaches 2.6:1 on the green page */
   --root-bright: #9cebef;
+  /* gold pulled from the logo's own yellow leaf tips — used as the hero
+     carousel's logo-slide background */
+  --gold: #ffcc36;
 
   --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
@@ -514,7 +517,7 @@ section {
 }
 
 .hero-slide.slide-logo {
-  background: var(--paper-alt);
+  background: var(--gold);
 }
 
 .hero-logo {
@@ -566,7 +569,7 @@ section {
   border-radius: 50%;
   border: none;
   padding: 0;
-  background: rgba(34, 35, 28, 0.28);
+  background: rgba(34, 35, 28, 0.45);
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
 }
