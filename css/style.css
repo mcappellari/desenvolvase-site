@@ -683,6 +683,113 @@ section {
   flex-direction: column;
 }
 
+/* volunteer-area cards: one accent tone per area, icon micro-interaction on hover */
+.vol-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.vol-card {
+  position: relative;
+  border-radius: var(--radius-m);
+  padding: 30px 26px;
+  color: var(--card-ink);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.vol-card:hover {
+  transform: translateY(-8px);
+}
+
+.vol-card h3 {
+  color: var(--card-ink);
+}
+
+.vol-card p {
+  color: var(--card-ink-muted);
+  margin: 0;
+}
+
+.vol-card.tone-root {
+  background: var(--root-pastel);
+}
+
+.vol-card.tone-root:hover {
+  box-shadow: 0 20px 44px rgba(34, 184, 192, 0.35);
+}
+
+.vol-card.tone-trunk {
+  background: var(--trunk-pastel);
+}
+
+.vol-card.tone-trunk:hover {
+  box-shadow: 0 20px 44px rgba(224, 139, 62, 0.35);
+}
+
+.vol-card.tone-canopy {
+  background: var(--canopy-pastel);
+}
+
+.vol-card.tone-canopy:hover {
+  box-shadow: 0 20px 44px rgba(37, 107, 57, 0.3);
+}
+
+.vol-card.tone-duo {
+  background: linear-gradient(135deg, var(--canopy-pastel), var(--root-pastel));
+}
+
+.vol-card.tone-duo:hover {
+  box-shadow: 0 20px 44px rgba(34, 184, 192, 0.3);
+}
+
+.vol-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  background: rgba(255, 255, 255, 0.6);
+  transition: transform 0.35s var(--ease-out);
+}
+
+.vol-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.vol-card:hover .vol-icon {
+  transform: rotate(-8deg) scale(1.12);
+}
+
+.vol-card.tone-root .vol-icon {
+  color: var(--root);
+}
+
+.vol-card.tone-trunk .vol-icon {
+  color: var(--trunk);
+}
+
+.vol-card.tone-canopy .vol-icon,
+.vol-card.tone-duo .vol-icon {
+  color: var(--card-accent);
+}
+
+@media (max-width: 900px) {
+  .vol-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .vol-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* the four "ramo" cards on the homepage: bigger duotone icon + accent tag */
 .ramo-icon {
   width: 56px;
