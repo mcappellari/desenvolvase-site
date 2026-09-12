@@ -22,20 +22,25 @@ function initHeroCarousel() {
 
   let index = 0;
   let timer = null;
+  let paused = false;
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const goTo = (next) => {
     slides[index].classList.remove("active");
     dots[index]?.classList.remove("active");
+    dots[index]?.setAttribute("aria-selected", "false");
     index = (next + slides.length) % slides.length;
     slides[index].classList.add("active");
     dots[index]?.classList.add("active");
+    dots[index]?.setAttribute("aria-selected", "true");
   };
 
   const restartTimer = () => {
     if (prefersReducedMotion) return;
     clearInterval(timer);
-    timer = setInterval(() => goTo(index + 1), 4500);
+    timer = setInterval(() => {
+      if (!paused) goTo(index + 1);
+    }, 6000);
   };
 
   dots.forEach((dot, i) => {
@@ -43,7 +48,25 @@ function initHeroCarousel() {
       goTo(i);
       restartTimer();
     });
+    dot.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        goTo(i + 1);
+        dots[index]?.focus();
+        restartTimer();
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        goTo(i - 1);
+        dots[index]?.focus();
+        restartTimer();
+      }
+    });
   });
+
+  root.addEventListener("mouseenter", () => (paused = true));
+  root.addEventListener("mouseleave", () => (paused = false));
+  root.addEventListener("focusin", () => (paused = true));
+  root.addEventListener("focusout", () => (paused = false));
 
   restartTimer();
 }
