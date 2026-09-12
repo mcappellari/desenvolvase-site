@@ -33,6 +33,13 @@
   --root-pastel: #dbf1f1;
   --trunk-pastel: #fbebdc;
   --on-accent: #1e2a1b;
+  /* darker root/trunk for small text on cream cards — --root/--trunk
+     themselves don't meet 4.5:1 there, only work as icon fills/tints */
+  --root-ink: #0f6e76;
+  --trunk-ink: #8a4e17;
+  /* lighter amber for large text directly on the green page (e.g. stat
+     numbers) — plain --trunk doesn't clear 3:1 there */
+  --trunk-bright: #f5b87a;
 
   --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
@@ -912,18 +919,17 @@ section {
 .ramo-tag {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   display: block;
   margin-top: 10px;
 }
 
 .ramo-tag.root {
-  color: var(--root);
+  color: var(--root-ink);
 }
 
 .ramo-tag.trunk {
-  color: var(--trunk);
+  color: var(--trunk-ink);
 }
 
 /* =========================================================
@@ -936,7 +942,7 @@ section {
 }
 
 .stats > div {
-  border-left: 2px solid var(--trunk);
+  border-left: 2px solid var(--trunk-bright);
   padding-left: 16px;
 }
 
@@ -944,7 +950,7 @@ section {
   font-family: var(--font-display);
   font-size: 2.4rem;
   font-weight: 700;
-  color: var(--trunk);
+  color: var(--trunk-bright);
   font-variant-numeric: tabular-nums;
 }
 
