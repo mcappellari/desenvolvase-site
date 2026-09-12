@@ -8,7 +8,78 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollReveal();
   initCounters();
   initHeroCarousel();
+  initContatoConsole();
 });
+
+// Página de contato: escolher o assunto adapta o formulário (sugestão de
+// escrita + atalho para o formulário certo), e a trilha de circuito acima
+// dos campos acende conforme a mensagem fica pronta para enviar.
+function initContatoConsole() {
+  const form = document.getElementById("contato-console");
+  if (!form) return;
+
+  const nome = form.querySelector("#ct-nome");
+  const email = form.querySelector("#ct-email");
+  const telefone = form.querySelector("#ct-telefone");
+  const mensagem = form.querySelector("#ct-mensagem");
+  const trace = form.querySelector(".rail-live");
+  const steps = form.querySelectorAll(".rail-step");
+  const caption = form.querySelector(".rail-caption");
+  const hint = form.querySelector("#intent-hint");
+  const hintLink = form.querySelector("#intent-hint-link");
+  const promptPadrao = mensagem.placeholder;
+
+  // quanto da trilha fica acesa a cada etapa concluída (0 a 3)
+  const PERCURSO = [95, 65, 35, 0];
+  const LEGENDAS = [
+    "Comece pelo seu nome.",
+    "Como podemos te responder?",
+    "Agora conta o que você precisa.",
+    "Pronto — é só enviar.",
+  ];
+
+  const atualizarTrilha = () => {
+    const etapas = [
+      nome.value.trim().length > 1,
+      email.value.trim().length > 3 || telefone.value.trim().length > 7,
+      mensagem.value.trim().length > 9,
+    ];
+
+    let concluidas = 0;
+    for (const ok of etapas) {
+      if (!ok) break;
+      concluidas += 1;
+    }
+
+    trace.style.strokeDashoffset = PERCURSO[concluidas];
+    steps.forEach((node, i) => node.classList.toggle("on", i < concluidas));
+    caption.textContent = LEGENDAS[concluidas];
+  };
+
+  form.querySelectorAll(".intent input").forEach((opcao) => {
+    opcao.addEventListener("change", () => {
+      mensagem.placeholder = opcao.dataset.prompt || promptPadrao;
+      if (opcao.dataset.atalhoHref) {
+        hintLink.href = opcao.dataset.atalhoHref;
+        hintLink.textContent = opcao.dataset.atalhoLabel;
+        hint.hidden = false;
+      } else {
+        hint.hidden = true;
+      }
+    });
+  });
+
+  form.addEventListener("input", atualizarTrilha);
+  form.addEventListener("reset", () => {
+    setTimeout(() => {
+      hint.hidden = true;
+      mensagem.placeholder = promptPadrao;
+      atualizarTrilha();
+    }, 0);
+  });
+
+  atualizarTrilha();
+}
 
 // Alterna os slides do carrossel do herói (logo + fotos), com bolinhas
 // de navegação. Não avança sozinho se o visitante preferir menos movimento.

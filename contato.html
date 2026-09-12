@@ -51,93 +51,219 @@
     </div>
   </header>
 
-  <section class="page-hero has-pattern">
-    <svg class="hero-pattern" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g stroke="currentColor" stroke-width="1.6" fill="none">
-        <path d="M0 100 L60 100 L80 70 L160 70 M80 70 L100 130 L180 130 M160 100 L220 100 L240 130 L320 130 M220 100 L260 70 L340 70 M340 100 L400 100"/>
-      </g>
-      <g fill="currentColor">
-        <circle cx="160" cy="70" r="4"/><circle cx="180" cy="130" r="4"/><circle cx="320" cy="130" r="4"/><circle cx="340" cy="70" r="4"/>
-      </g>
-    </svg>
-    <div class="container">
-      <h1>Contato</h1>
-      <p class="lead">Estamos em Porto Alegre - RS. Fale com a gente pelo WhatsApp, Instagram ou pelo formulário abaixo.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Fale com a gente</span>
-        <h2>Canais de contato</h2>
-      </div>
-    </div>
-    <div class="container grid grid-3">
-      <div class="card">
-        <div class="card-head">
-          <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20l1.1-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
-          <h3>WhatsApp</h3>
+  <section class="contact-hero">
+    <div class="container contact-hero-inner">
+      <div class="contact-hero-copy">
+        <span class="eyebrow">Contato</span>
+        <h1>Toda árvore começa com uma conversa.</h1>
+        <p class="lead">Dúvida, matrícula, doação, parceria ou só um oi. Escolha o caminho mais confortável — do outro lado tem gente do projeto lendo.</p>
+        <div class="btn-group">
+          <a href="https://wa.me/5551984406121" target="_blank" rel="noopener" class="btn btn-primary">Chamar no WhatsApp</a>
+          <a href="#conversa" class="btn btn-outline">Escrever para o projeto</a>
         </div>
-        <p><a href="https://wa.me/5551984406121" target="_blank" rel="noopener">(51) 98440-6121</a></p>
       </div>
-      <div class="card">
-        <div class="card-head">
-          <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2ZM17.5 6a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z"/></svg></div>
-          <h3>Instagram</h3>
-        </div>
-        <p><a href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">@desenvolvase.projeto</a></p>
-      </div>
-      <div class="card">
-        <div class="card-head">
-          <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg></div>
-          <h3>Localização</h3>
-        </div>
-        <p>Porto Alegre - RS</p>
+      <div class="contact-hero-art">
+        <svg class="talk-tree" viewBox="0 0 360 300" role="img" aria-label="Ilustração: um balão de fala desenhado em trilhas de circuito, com folhas brotando no topo e raízes descendo a partir da ponta do balão">
+          <defs>
+            <path id="leaf" d="M24,0 C24,-10 12,-18 0,-18 C0,-8 12,0 24,0 Z" />
+          </defs>
+          <g class="sprout">
+            <path class="stem" d="M250,40 C262,32 274,28 288,26" />
+            <use href="#leaf" class="leaf" transform="translate(288,26) rotate(-14)" />
+            <use href="#leaf" class="leaf leaf-deep" transform="translate(266,30) rotate(-38) scale(0.82)" />
+            <use href="#leaf" class="leaf" transform="translate(248,38) rotate(-64) scale(0.62)" />
+          </g>
+          <path class="bubble" d="M68,40 H272 A28,28 0 0 1 300,68 V152 A28,28 0 0 1 272,180 H150 L108,214 L118,180 H68 A28,28 0 0 1 40,152 V68 A28,28 0 0 1 68,40 Z" />
+          <g class="trace">
+            <path d="M62,148 H96 L116,128 H176" />
+            <path d="M116,128 V96 L136,76 H198" />
+            <path d="M176,128 H232 L252,148 H282" />
+            <path d="M198,76 H246 L264,58 H286" />
+          </g>
+          <g class="trace roots">
+            <path d="M108,214 V236" />
+            <path d="M108,236 L86,258 H44" />
+            <path d="M108,236 L132,260 H206 L226,278 H268" />
+            <path d="M108,236 V282" />
+          </g>
+          <g class="nodes">
+            <circle cx="176" cy="128" r="4.5" />
+            <circle cx="198" cy="76" r="4.5" />
+            <circle cx="282" cy="148" r="4.5" />
+            <circle class="node-warm" cx="286" cy="58" r="4.5" />
+            <circle cx="44" cy="258" r="5" />
+            <circle cx="268" cy="278" r="5" />
+            <circle class="node-warm" cx="108" cy="282" r="5" />
+          </g>
+        </svg>
       </div>
     </div>
   </section>
 
   <section class="section-alt">
     <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Formulário</span>
-        <h2>Envie sua mensagem</h2>
+      <div class="block-head">
+        <span class="eyebrow">Canais diretos</span>
+        <h2>Onde a gente está</h2>
       </div>
-      <form class="form-card" data-sheet-form="contato">
-        <div class="form-row two-col">
-          <div>
-            <label for="ct-nome">Nome</label>
-            <input type="text" id="ct-nome" name="nome" required />
+      <div class="channel-strip">
+        <a class="channel channel-primary" href="https://wa.me/5551984406121" target="_blank" rel="noopener">
+          <span class="channel-badge">Resposta mais rápida</span>
+          <div class="channel-head">
+            <svg class="channel-icon" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.607 1.902 6.47L4 29l7.72-1.858A11.94 11.94 0 0 0 16.001 27C22.63 27 28 21.627 28 15S22.63 3 16.001 3Zm6.994 16.982c-.297.836-1.47 1.53-2.406 1.727-.64.135-1.475.243-4.285-.92-3.594-1.487-5.906-5.13-6.086-5.367-.176-.238-1.457-1.938-1.457-3.696 0-1.758.92-2.622 1.246-2.98.326-.358.71-.448.947-.448.238 0 .475.002.682.012.219.01.512-.083.8.611.297.712 1.008 2.469 1.096 2.65.088.181.146.393.03.63-.117.238-.176.386-.35.594-.176.207-.37.463-.53.622-.176.176-.36.367-.155.723.207.356.918 1.517 1.973 2.457 1.356 1.207 2.5 1.582 2.855 1.76.356.176.564.148.771-.09.207-.238.887-1.034 1.125-1.39.238-.356.475-.297.8-.178.326.117 2.078.98 2.434 1.158.356.178.594.267.68.416.088.148.088.86-.208 1.697Z"/></svg>
+            <h3>WhatsApp</h3>
           </div>
-          <div>
-            <label for="ct-telefone">Telefone / WhatsApp</label>
-            <input type="tel" id="ct-telefone" name="telefone" placeholder="(51) 90000-0000" />
+          <p class="channel-value">(51) 98440-6121</p>
+          <p class="channel-note">O canal que a coordenação acompanha todo dia: turmas, doações, visitas e parcerias.</p>
+          <span class="channel-go">Abrir conversa
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
+        <a class="channel" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
+          <div class="channel-head">
+            <svg class="channel-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2ZM17.5 6a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z"/></svg>
+            <h3>Instagram</h3>
+          </div>
+          <p class="channel-value">@desenvolvase.projeto</p>
+          <p class="channel-note">As turmas, as campanhas e as entregas, quase em tempo real.</p>
+          <span class="channel-go">Seguir
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
+        <div class="channel channel-static">
+          <div class="channel-head">
+            <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+            <h3>Onde estamos</h3>
+          </div>
+          <p class="channel-value">Porto Alegre · RS</p>
+          <p class="channel-note">Visitas ao projeto são combinadas antes pelo WhatsApp.</p>
+          <span class="channel-doc">CNPJ 61.023.657/0001-69</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="conversa">
+    <div class="container">
+      <div class="block-head">
+        <span class="eyebrow">As raízes · Sua mensagem</span>
+        <h2>Escolha o ramo da conversa</h2>
+        <p>Quando você marca o assunto, a mensagem chega direto em quem cuida dele — e, se existir um caminho mais rápido, a gente mostra na hora.</p>
+      </div>
+
+      <form class="console" id="contato-console" data-sheet-form="contato">
+        <svg class="console-mark" viewBox="0 0 200 200" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M10 40h50l24 24h60M84 64v46l24 24h82M60 40V10M134 64l24-24h42M108 134v56"/>
+          </g>
+          <g fill="currentColor">
+            <circle cx="134" cy="64" r="7"/><circle cx="190" cy="134" r="7"/><circle cx="60" cy="10" r="7"/><circle cx="108" cy="190" r="7"/>
+          </g>
+        </svg>
+
+        <div class="console-grid">
+          <fieldset class="intent-picker">
+            <legend>Sobre o que vamos falar?</legend>
+            <div class="intent-list">
+              <label class="intent" data-tone="canopy">
+                <input type="radio" name="assunto" value="Quero ser voluntário" required
+                       data-prompt="Conte sua área (tecnologia, música, educação, comunicação...) e quanto tempo você teria por semana."
+                       data-atalho-href="voluntario.html" data-atalho-label="formulário de voluntário" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M18 5.6c1.4-1.3 3.5.6 2.2 2.2L18 10.6l-2.2-2.8c-1.3-1.6.8-3.5 2.2-2.2Z"/></svg>
+                <span>Quero ser voluntário</span>
+              </label>
+
+              <label class="intent" data-tone="root">
+                <input type="radio" name="assunto" value="Quero doar computadores"
+                       data-prompt="Quantos equipamentos, de que tipo e em que estado eles estão?"
+                       data-atalho-href="ticonectars.html#doar" data-atalho-label="formulário de doação de equipamentos" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+                <span>Quero doar computadores</span>
+              </label>
+
+              <label class="intent" data-tone="trunk">
+                <input type="radio" name="assunto" value="Quero apoiar com doação"
+                       data-prompt="Quer apoiar uma vez ou todo mês? Conte como prefere contribuir."
+                       data-atalho-href="contribua.html" data-atalho-label="página de doação com o PIX" />
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 20.5S4.5 15.8 4.5 10.8A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7.5 2.8c0 5-7.5 9.7-7.5 9.7Z"/></svg>
+                <span>Quero apoiar com doação</span>
+              </label>
+
+              <label class="intent" data-tone="root">
+                <input type="radio" name="assunto" value="Quero estudar no projeto"
+                       data-prompt="Qual a sua idade e o que te interessa mais: tecnologia ou música?"
+                       data-atalho-href="informatica.html" data-atalho-label="inscrição da Tecnologia que Transforma" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4"/></svg>
+                <span>Quero estudar no projeto</span>
+              </label>
+
+              <label class="intent" data-tone="trunk">
+                <input type="radio" name="assunto" value="Parceria com empresa"
+                       data-prompt="Conte sobre a empresa e o que vocês imaginam construir com a gente." />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="9" height="16" rx="1.5"/><path d="M13 10h6a1 1 0 0 1 1 1v9M7 8h3M7 12h3M7 16h3M16 14h1M16 17h1"/></svg>
+                <span>Parceria com empresa</span>
+              </label>
+
+              <label class="intent">
+                <input type="radio" name="assunto" value="Imprensa"
+                       data-prompt="Qual veículo, qual pauta e qual o seu prazo?" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+                <span>Imprensa</span>
+              </label>
+
+              <label class="intent">
+                <input type="radio" name="assunto" value="Outro assunto"
+                       data-prompt="Escreva à vontade — a gente lê tudo." />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20l1.1-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+                <span>Outro assunto</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="console-form">
+            <div class="rail" aria-hidden="true">
+              <svg viewBox="0 0 556 80">
+                <path class="rail-base" d="M8,40 H96 L120,16 H176 L200,40 H256 L280,64 H336 L360,40 H416 L440,16 H496 L520,40 H548" />
+                <path class="rail-live" pathLength="100" d="M8,40 H96 L120,16 H176 L200,40 H256 L280,64 H336 L360,40 H416 L440,16 H496 L520,40 H548" />
+                <rect class="rail-node rail-seed" x="32" y="32" width="16" height="16" rx="4" />
+                <circle class="rail-node rail-step" cx="200" cy="40" r="8" />
+                <circle class="rail-node rail-step" cx="360" cy="40" r="8" />
+                <circle class="rail-node rail-step rail-goal" cx="520" cy="40" r="10" />
+              </svg>
+            </div>
+            <p class="rail-caption">Comece pelo seu nome.</p>
+
+            <p class="intent-hint" id="intent-hint" aria-live="polite" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5Z"/></svg>
+              <span>Caminho mais rápido para isso: <a id="intent-hint-link" href="#">atalho</a>.</span>
+            </p>
+
+            <div class="form-row">
+              <div>
+                <label for="ct-nome">Seu nome</label>
+                <input type="text" id="ct-nome" name="nome" required />
+              </div>
+            </div>
+            <div class="form-row two-col">
+              <div>
+                <label for="ct-email">E-mail</label>
+                <input type="email" id="ct-email" name="email" required />
+              </div>
+              <div>
+                <label for="ct-telefone">Telefone / WhatsApp</label>
+                <input type="tel" id="ct-telefone" name="telefone" placeholder="(51) 90000-0000" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="ct-mensagem">Mensagem</label>
+                <textarea id="ct-mensagem" name="mensagem" rows="5" required placeholder="Escolha um assunto ao lado e a gente sugere o que contar aqui."></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+            <p class="form-status" role="status"></p>
           </div>
         </div>
-        <div class="form-row two-col">
-          <div>
-            <label for="ct-email">E-mail</label>
-            <input type="email" id="ct-email" name="email" required />
-          </div>
-          <div>
-            <label for="ct-assunto">Assunto</label>
-            <select id="ct-assunto" name="assunto">
-              <option value="Dúvida geral">Dúvida geral</option>
-              <option value="Imprensa">Imprensa</option>
-              <option value="Parceria">Parceria</option>
-              <option value="Outro">Outro</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <div>
-            <label for="ct-mensagem">Mensagem</label>
-            <textarea id="ct-mensagem" name="mensagem" rows="4" required></textarea>
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-        <p class="form-status" role="status"></p>
       </form>
     </div>
   </section>
