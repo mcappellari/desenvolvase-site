@@ -604,6 +604,26 @@ section {
   position: relative;
 }
 
+.page-hero.has-pattern {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero.has-pattern .hero-pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--root);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.page-hero.has-pattern .container {
+  position: relative;
+  z-index: 1;
+}
+
 /* =========================================================
    Cards / grids
    ========================================================= */
