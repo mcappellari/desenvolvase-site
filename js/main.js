@@ -7,7 +7,46 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeaderScroll();
   initScrollReveal();
   initCounters();
+  initHeroCarousel();
 });
+
+// Alterna os slides do carrossel do herói (logo + fotos), com bolinhas
+// de navegação. Não avança sozinho se o visitante preferir menos movimento.
+function initHeroCarousel() {
+  const root = document.getElementById("hero-carousel");
+  if (!root) return;
+
+  const slides = root.querySelectorAll(".hero-slide");
+  const dots = root.querySelectorAll(".hero-dots button");
+  if (slides.length < 2) return;
+
+  let index = 0;
+  let timer = null;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const goTo = (next) => {
+    slides[index].classList.remove("active");
+    dots[index]?.classList.remove("active");
+    index = (next + slides.length) % slides.length;
+    slides[index].classList.add("active");
+    dots[index]?.classList.add("active");
+  };
+
+  const restartTimer = () => {
+    if (prefersReducedMotion) return;
+    clearInterval(timer);
+    timer = setInterval(() => goTo(index + 1), 4500);
+  };
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      goTo(i);
+      restartTimer();
+    });
+  });
+
+  restartTimer();
+}
 
 function initMobileNav() {
   const toggle = document.getElementById("nav-toggle");
