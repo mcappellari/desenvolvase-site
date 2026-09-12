@@ -1955,6 +1955,154 @@ a.channel:hover .channel-go svg {
 }
 
 /* =========================================================
+   Música — logo do ramo, professor e galeria das turmas
+   ========================================================= */
+.musica-intro {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 44px;
+  align-items: center;
+}
+
+/* o logo do ramo tem raízes em verde escuro: só lê bem sobre superfície clara */
+.musica-logo-card {
+  background: var(--paper-raised);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.musica-logo-card img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+}
+
+.musica-intro-texto p {
+  color: var(--ink-muted);
+}
+
+.musica-intro-texto p:last-child {
+  margin-bottom: 0;
+}
+
+.professor-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  max-width: 780px;
+  margin: 0 auto;
+  background: var(--paper-raised);
+  color: var(--card-ink);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow);
+  padding: 30px 32px;
+}
+
+.professor-icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: var(--trunk-pastel);
+  color: var(--trunk-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.professor-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.professor-card p {
+  color: var(--card-ink-muted);
+}
+
+.professor-card strong {
+  color: var(--card-ink);
+}
+
+.professor-link {
+  margin-bottom: 0;
+}
+
+.professor-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--card-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.professor-link a:hover {
+  color: var(--card-accent-deep);
+}
+
+.professor-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* galeria: retratos altos e paisagens largas se encaixam sem deixar buraco */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 175px;
+  grid-auto-flow: dense;
+  gap: 14px;
+}
+
+.galeria a {
+  border-radius: var(--radius-m);
+  background-color: var(--paper-alt);
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), filter 0.25s ease;
+}
+
+.galeria a:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  filter: brightness(1.05);
+}
+
+.galeria .g-tall {
+  grid-row: span 2;
+}
+
+.galeria .g-wide {
+  grid-column: span 2;
+}
+
+@media (max-width: 900px) {
+  .musica-intro {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .musica-logo-card {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .professor-card {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
+  }
+}
+
+/* =========================================================
    CTA band — deeper green, before the footer
    ========================================================= */
 .cta-band {
