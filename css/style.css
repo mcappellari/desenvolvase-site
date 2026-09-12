@@ -37,7 +37,6 @@
      themselves don't meet 4.5:1 there, only work as icon fills/tints */
   --root-ink: #0f6e76;
   --trunk-ink: #8a4e17;
-  --fruit: #e0673b;
   /* lighter amber for large text directly on the green page (e.g. stat
      numbers) — plain --trunk doesn't clear 3:1 there */
   --trunk-bright: #f5b87a;
@@ -944,80 +943,6 @@ section {
 /* =========================================================
    Stats
    ========================================================= */
-.impact-tree {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-
-.impact-tree-svg {
-  width: 100%;
-  max-width: 480px;
-  height: auto;
-}
-
-.tree-parts {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-.tree-part {
-  border-top: 3px solid transparent;
-  padding-top: 14px;
-}
-
-.tree-part .stat-number {
-  color: var(--ink);
-}
-
-.tree-part-label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.tree-part.root {
-  border-top-color: var(--root);
-}
-
-.tree-part.root .tree-part-label {
-  color: var(--root);
-}
-
-.tree-part.trunk {
-  border-top-color: var(--trunk-bright);
-}
-
-.tree-part.trunk .tree-part-label {
-  color: var(--trunk-bright);
-}
-
-.tree-part.canopy {
-  border-top-color: var(--canopy);
-}
-
-.tree-part.canopy .tree-part-label {
-  color: var(--canopy);
-}
-
-.tree-part.fruit {
-  border-top-color: var(--fruit);
-}
-
-.tree-part.fruit .tree-part-label {
-  color: var(--fruit);
-}
-
-@media (max-width: 720px) {
-  .tree-parts {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 .stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
