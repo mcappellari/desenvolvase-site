@@ -726,6 +726,16 @@ section {
   color: var(--trunk);
 }
 
+.ramo-card-cta {
+  display: block;
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--canopy);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
 /* =========================================================
    Stats
    ========================================================= */
