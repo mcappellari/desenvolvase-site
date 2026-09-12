@@ -1102,6 +1102,19 @@ textarea:focus {
   text-align: center;
 }
 
+.partner-photo {
+  max-width: 640px;
+  margin: 0 auto;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.partner-photo img {
+  width: 100%;
+  display: block;
+}
+
 .instagram-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
