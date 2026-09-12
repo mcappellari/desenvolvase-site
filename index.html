@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Desenvolva-se | Raízes Fortes, Futuro Próspero</title>
   <meta name="description" content="Desenvolva-se é uma organização de Porto Alegre - RS que promove aulas de informática e música, recondicionamento de computadores (tiConectaRS) e ações sociais para jovens e comunidades vulneráveis." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Desenvolva-se | Raízes Fortes, Futuro Próspero" />
+  <meta property="og:description" content="Organização de Porto Alegre - RS que promove tecnologia, música, recondicionamento de computadores (tiConectaRS) e ações sociais para jovens e comunidades vulneráveis." />
+  <meta property="og:image" content="https://desenvolvase.org.br/fotos/foto1-sala-tecnologia.jpeg" />
+  <meta property="og:url" content="https://desenvolvase.org.br/" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
@@ -75,17 +81,28 @@
         <h2>Quatro ramos, a mesma árvore</h2>
         <p>Cada ramo do Desenvolva-se contribui para gerar oportunidades reais de desenvolvimento profissional e humano.</p>
       </div>
-      <div class="grid grid-4">
-        <div class="card">
-          <div class="ramo-icon tag-root">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 4 12l5 6"/><path d="M15 6l5 6-5 6"/></svg>
+      <div class="ramos-bento">
+        <a href="informatica.html" class="ramo-card photo span-wide" style="background-image:url('fotos/foto1-sala-tecnologia.jpeg')">
+          <div class="ramo-card-body">
+            <div class="ramo-icon tag-root">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 4 12l5 6"/><path d="M15 6l5 6-5 6"/></svg>
+            </div>
+            <h3>Tecnologia que Transforma</h3>
+            <p>Formação técnica e comportamental para jovens de 14 a 17 anos, com dois módulos de conteúdo prático.</p>
+            <span class="ramo-tag root">Ramo · Tecnologia — Saiba mais →</span>
           </div>
-          <h3>Tecnologia que Transforma</h3>
-          <p>Formação técnica e comportamental para jovens de 14 a 17 anos, com dois módulos de conteúdo prático.</p>
-          <a href="informatica.html">Saiba mais →</a>
-          <span class="ramo-tag root">Ramo · Tecnologia</span>
-        </div>
-        <div class="card">
+        </a>
+        <a href="acao-social.html" class="ramo-card photo span-narrow" style="background-image:url('fotos/foto3-acao-social.jpeg')">
+          <div class="ramo-card-body">
+            <div class="ramo-icon tag-trunk">
+              <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21s-7-4.35-9.5-8.5C.7 9 2 5.5 5.5 5c2-.3 3.7.8 4.5 2.3C10.8 5.8 12.5 4.7 14.5 5 18 5.5 19.3 9 17.5 12.5 15 16.65 12 21 12 21Z"/></svg>
+            </div>
+            <h3>Ações Sociais</h3>
+            <p>Páscoa, agasalho, McDia Feliz, Dia das Crianças e Natal — para comunidades carentes.</p>
+            <span class="ramo-tag trunk">Ramo · Humano — Saiba mais →</span>
+          </div>
+        </a>
+        <div class="ramo-card icon-style span-narrow">
           <div class="ramo-icon tag-trunk">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17.5V5.5l10-1.8v11.8"/><circle cx="7" cy="17.5" r="2.6" fill="currentColor" stroke="none"/><circle cx="17" cy="15.7" r="2.6" fill="currentColor" stroke="none"/></svg>
           </div>
@@ -94,7 +111,7 @@
           <a href="musica.html">Saiba mais →</a>
           <span class="ramo-tag trunk">Ramo · Humano</span>
         </div>
-        <div class="card">
+        <div class="ramo-card icon-style span-wide">
           <div class="ramo-icon tag-root">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.36 0l2.14-2.14a4.5 4.5 0 0 0-6.36-6.36L11 6.64"/><path d="M14 10a4.5 4.5 0 0 0-6.36 0L5.5 12.14a4.5 4.5 0 0 0 6.36 6.36L13 17.36"/></svg>
           </div>
@@ -102,15 +119,6 @@
           <p>Recebemos computadores usados, recuperamos e doamos para escolas, hospitais e instituições sociais.</p>
           <a href="ticonectars.html">Saiba mais →</a>
           <span class="ramo-tag root">Ramo · Tecnologia</span>
-        </div>
-        <div class="card">
-          <div class="ramo-icon tag-trunk">
-            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21s-7-4.35-9.5-8.5C.7 9 2 5.5 5.5 5c2-.3 3.7.8 4.5 2.3C10.8 5.8 12.5 4.7 14.5 5 18 5.5 19.3 9 17.5 12.5 15 16.65 12 21 12 21Z"/></svg>
-          </div>
-          <h3>Ações Sociais</h3>
-          <p>Campanhas ao longo do ano — Páscoa, agasalho, McDia Feliz, Dia das Crianças e Natal — para comunidades carentes.</p>
-          <a href="acao-social.html">Saiba mais →</a>
-          <span class="ramo-tag trunk">Ramo · Humano</span>
         </div>
       </div>
     </div>
@@ -158,22 +166,10 @@
         substituto temporário.
       -->
       <div class="instagram-grid">
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2ZM17.5 6a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z"/></svg>
-          <span>Ver no Instagram</span>
-        </a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2ZM17.5 6a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z"/></svg>
-          <span>Ver no Instagram</span>
-        </a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2ZM17.5 6a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z"/></svg>
-          <span>Ver no Instagram</span>
-        </a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2ZM17.5 6a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z"/></svg>
-          <span>Ver no Instagram</span>
-        </a>
+        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener" style="background-image:url('fotos/foto1-sala-tecnologia.jpeg')"></a>
+        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener" style="background-image:url('fotos/foto2-sala-tecnologia.jpeg')"></a>
+        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener" style="background-image:url('fotos/foto3-acao-social.jpeg')"></a>
+        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener" style="background-image:url('fotos/foto4-acao-social.jpeg')"></a>
       </div>
     </div>
   </section>

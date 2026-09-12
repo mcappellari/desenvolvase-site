@@ -74,6 +74,7 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
+  font-weight: 700;
   line-height: 1.15;
   margin: 0 0 0.6em;
   letter-spacing: -0.01em;
@@ -82,6 +83,8 @@ h4 {
 
 h1 {
   font-size: clamp(2.1rem, 4.2vw, 3.1rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 h2 {
@@ -112,7 +115,7 @@ a {
 }
 
 section {
-  padding: 76px 0;
+  padding: 76px 0 88px;
 }
 
 .section-alt {
@@ -194,7 +197,7 @@ section {
 }
 
 .btn:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.97);
 }
 
 .btn:focus-visible {
@@ -489,6 +492,24 @@ section {
   margin-right: auto;
 }
 
+.page-hero.has-photo {
+  position: relative;
+  padding: 96px 0 72px;
+  background-size: cover;
+  background-position: center;
+}
+
+.page-hero.has-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 30, 20, 0.82) 0%, rgba(15, 30, 20, 0.55) 60%, var(--paper) 100%);
+}
+
+.page-hero.has-photo .container {
+  position: relative;
+}
+
 /* =========================================================
    Cards / grids
    ========================================================= */
@@ -568,6 +589,98 @@ section {
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
+}
+
+/* asymmetric bento layout for the four "ramo" cards — replaces a plain 4-equal-column row */
+.ramos-bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 22px;
+}
+
+.ramo-card {
+  grid-column: span 12;
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.ramo-card.icon-style a {
+  color: var(--card-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ramo-card.icon-style a:hover {
+  color: var(--card-accent-deep);
+}
+
+.ramo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.ramo-card.span-wide {
+  grid-column: span 12;
+}
+
+.ramo-card.span-narrow {
+  grid-column: span 12;
+}
+
+@media (min-width: 860px) {
+  .ramo-card.span-wide {
+    grid-column: span 7;
+  }
+  .ramo-card.span-narrow {
+    grid-column: span 5;
+  }
+}
+
+.ramo-card.photo {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+  color: var(--ink);
+  background-size: cover;
+  background-position: center;
+}
+
+.ramo-card.photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(15, 30, 20, 0.88) 0%, rgba(15, 30, 20, 0.35) 55%, rgba(15, 30, 20, 0.05) 100%);
+}
+
+.ramo-card.photo .ramo-card-body {
+  position: relative;
+  padding: 26px;
+}
+
+.ramo-card.photo h3,
+.ramo-card.photo p {
+  color: var(--ink);
+}
+
+.ramo-card.photo p {
+  color: var(--ink-muted);
+}
+
+.ramo-card.photo a {
+  color: var(--canopy);
+  font-weight: 600;
+}
+
+.ramo-card.icon-style {
+  background: var(--paper-raised);
+  color: var(--card-ink);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* the four "ramo" cards on the homepage: bigger duotone icon + accent tag */
@@ -785,31 +898,19 @@ textarea:focus {
 .instagram-grid .ph {
   aspect-ratio: 1;
   border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--card-ink);
-  padding: 14px;
-  text-align: center;
+  display: block;
   text-decoration: none;
-  background: var(--paper-raised);
+  background-color: var(--paper-raised);
+  background-size: cover;
+  background-position: center;
   box-shadow: var(--shadow);
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
-}
-
-.instagram-grid .ph svg {
-  width: 28px;
-  height: 28px;
-  fill: var(--card-accent);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), filter 0.3s ease;
 }
 
 .instagram-grid .ph:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
+  filter: brightness(1.06);
 }
 
 /* =========================================================
