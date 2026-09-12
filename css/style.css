@@ -480,9 +480,13 @@ section {
   opacity: 1;
 }
 
+.hero-slide.slide-logo {
+  background: var(--card-ink);
+}
+
 .hero-logo {
-  width: 52%;
-  min-width: 140px;
+  width: 68%;
+  min-width: 170px;
 }
 
 .hero-photo {
