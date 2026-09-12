@@ -733,6 +733,8 @@ section {
   color: var(--card-accent);
   font-weight: 600;
   text-decoration: none;
+  /* absorbs the leftover space so link + tag line up across cards of different text lengths */
+  margin-top: auto;
 }
 
 .ramo-card.icon-style a:hover {
@@ -1146,6 +1148,12 @@ textarea:focus {
   background-position: center;
   box-shadow: var(--shadow);
   transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), filter 0.3s ease;
+}
+
+/* one panoramic tile so the 7 photos fill the grid without a hole in the last row */
+.instagram-grid .ph.wide {
+  grid-column: span 2;
+  aspect-ratio: 2 / 1;
 }
 
 .instagram-grid .ph:hover {
