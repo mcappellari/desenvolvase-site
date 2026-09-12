@@ -1102,6 +1102,18 @@ textarea:focus {
   text-align: center;
 }
 
+.instagram-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.instagram-heading svg {
+  flex-shrink: 0;
+  color: var(--canopy);
+}
+
 .partner-photo {
   max-width: 640px;
   margin: 0 auto;
