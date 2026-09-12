@@ -1118,17 +1118,27 @@ textarea:focus {
   color: var(--canopy);
 }
 
-.partner-photo {
+.foto-destaque {
   max-width: 640px;
-  margin: 0 auto;
+  margin: 34px auto 0;
   border-radius: var(--radius-m);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
 }
 
-.partner-photo img {
+.foto-destaque img {
   width: 100%;
   display: block;
+}
+
+.foto-legenda {
+  margin: 12px auto 0;
+  max-width: 640px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-muted);
 }
 
 .instagram-grid {
@@ -2137,20 +2147,6 @@ a.channel:hover .channel-go svg {
   margin: 0 auto;
 }
 
-/* a foto de parceria agora vem depois dos cards, então precisa de respiro */
-.partner-photo {
-  margin-top: 34px;
-}
-
-.partner-caption {
-  margin: 12px auto 0;
-  max-width: 640px;
-  text-align: center;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.03em;
-  color: var(--ink-muted);
-}
 
 @media (max-width: 720px) {
   .stats.stats-duo {
