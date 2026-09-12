@@ -156,7 +156,8 @@ function initCounters() {
   if (!counters.length) return;
 
   const renderFinal = (el) => {
-    el.textContent = `${el.dataset.count}${el.dataset.suffix || ""}`;
+    const value = Number(el.dataset.count).toLocaleString("pt-BR");
+    el.textContent = `${value}${el.dataset.suffix || ""}`;
   };
 
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -173,7 +174,8 @@ function initCounters() {
     const step = (now) => {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = `${Math.round(target * eased)}${suffix}`;
+      const value = Math.round(target * eased).toLocaleString("pt-BR");
+      el.textContent = `${value}${suffix}`;
       if (progress < 1) requestAnimationFrame(step);
     };
 
