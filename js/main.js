@@ -432,7 +432,8 @@ function initCounters() {
  * ficam registradas em lugar nenhum. Preencher isto é o que liga os nove
  * formulários do site.
  */
-const GOOGLE_SCRIPT_URL = "COLE_AQUI_A_URL_DO_APPS_SCRIPT";
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbz1E3aRnOTKbE9AS-bkhCo85NBaLAYufl8UhndR5xWnwT-ywDi8RBjgf7oOp3ZyeJbS/exec";
 
 const WHATSAPP_NUMERO = "5551984406121";
 

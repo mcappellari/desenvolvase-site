@@ -3,3 +3,8 @@
 .agents/
 .impeccable/
 skills-lock.json
+
+# Dados de configuração que NÃO podem ser publicados.
+# O deploy envia a raiz do repositório inteira, então tudo que é
+# versionado fica acessível em desenvolvase.org.br/<arquivo>.
+CONFIGURACAO-PRIVADA.md

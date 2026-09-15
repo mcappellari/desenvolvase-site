@@ -53,10 +53,15 @@ apontar o script para cada uma. Passo a passo:
 4. Apague o conteúdo padrão e cole o script abaixo, substituindo cada
    `ID_DA_PLANILHA_...` pelo ID real da planilha correspondente:
 
+   > **Não coloque os IDs reais neste arquivo.** Ele é publicado junto com
+   > o site e fica acessível em `desenvolvase.org.br/SETUP.md`. Os IDs
+   > reais moram só dentro do Apps Script, que é privado da conta Google.
+   > Aqui ficam sempre os nomes de exemplo.
+
    ```javascript
    var PLANILHAS = {
-     "matricula-informatica": "ID_DA_PLANILHA_INFORMATICA",
-     "matricula-musica": "ID_DA_PLANILHA_MUSICA",
+     "matricula-informatica": "ID_DA_PLANILHA_MATRICULA_INFORMATICA",
+     "matricula-musica": "ID_DA_PLANILHA_MATRICULA_MUSICA",
      "ticonectars-doacao": "ID_DA_PLANILHA_TICONECTARS_DOACAO",
      "ticonectars-solicitacao": "ID_DA_PLANILHA_TICONECTARS_SOLICITACAO",
      "acao-social": "ID_DA_PLANILHA_ACAO_SOCIAL",
@@ -65,6 +70,13 @@ apontar o script para cada uma. Passo a passo:
      "contribua": "ID_DA_PLANILHA_CONTRIBUA",
      "contato": "ID_DA_PLANILHA_CONTATO"
    };
+
+   // Aceita tanto o ID quanto a URL inteira da planilha, que é o que a
+   // gente costuma ter à mão ao copiar do navegador.
+   function extrairId(valor) {
+     var achado = String(valor).match(/\/d\/([a-zA-Z0-9-_]+)/);
+     return achado ? achado[1] : String(valor).trim();
+   }
 
    function doPost(e) {
      var dados = JSON.parse(e.postData.contents);
@@ -75,7 +87,13 @@ apontar o script para cada uma. Passo a passo:
        return ContentService.createTextOutput("Formulário desconhecido: " + formulario);
      }
 
-     var planilha = SpreadsheetApp.openById(idPlanilha);
+     // Enquanto um formulário não tiver planilha própria, avisa em vez de
+     // quebrar — dá para ligar os formulários aos poucos.
+     if (idPlanilha.indexOf("ID_DA_PLANILHA") === 0) {
+       return ContentService.createTextOutput("Sem planilha configurada: " + formulario);
+     }
+
+     var planilha = SpreadsheetApp.openById(extrairId(idPlanilha));
      var aba = planilha.getSheets()[0];
 
      if (aba.getLastRow() === 0) {
