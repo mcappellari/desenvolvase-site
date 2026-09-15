@@ -425,31 +425,95 @@ function initCounters() {
 /**
  * URL do Google Apps Script (Web App) que grava os envios no Google Sheets.
  * Ver SETUP.md para o passo a passo de como criar e publicar esse script.
- * Enquanto este valor não for preenchido, os formulários mostram uma
- * mensagem de aviso em vez de tentar enviar.
+ *
+ * ATENÇÃO: enquanto este valor for o texto de exemplo, NENHUM envio chega
+ * à planilha. O site não perde o visitante nesse caso — os formulários
+ * oferecem enviar o mesmo conteúdo pelo WhatsApp —, mas as respostas não
+ * ficam registradas em lugar nenhum. Preencher isto é o que liga os nove
+ * formulários do site.
  */
 const GOOGLE_SCRIPT_URL = "COLE_AQUI_A_URL_DO_APPS_SCRIPT";
+
+const WHATSAPP_NUMERO = "5551984406121";
+
+function backendConectado() {
+  return Boolean(GOOGLE_SCRIPT_URL) && !GOOGLE_SCRIPT_URL.startsWith("COLE_AQUI");
+}
 
 function initForms() {
   document.querySelectorAll("form[data-sheet-form]").forEach((form) => {
     form.addEventListener("submit", (event) => handleFormSubmit(event, form));
+
+    // um único evento por formulário, quando o visitante começa a
+    // preencher — só o nome do formulário, nada do que foi digitado
+    let jaContou = false;
+    form.addEventListener(
+      "input",
+      () => {
+        if (jaContou) return;
+        jaContou = true;
+        rastrear("formulario_iniciado", form.getAttribute("data-sheet-form"));
+      },
+      { once: false }
+    );
   });
+}
+
+// Usa o texto do <label> visível em vez do name do campo, para que o
+// resumo enviado pelo WhatsApp fique legível para quem recebe.
+function rotuloDoCampo(form, campo) {
+  const el = form.elements[campo];
+  if (!el) return campo;
+  const alvo = el instanceof RadioNodeList ? el[0] : el;
+  const rotulo = alvo && alvo.id ? form.querySelector(`label[for="${alvo.id}"]`) : null;
+  if (rotulo) return rotulo.textContent.trim().replace(/\s+/g, " ");
+  return campo;
+}
+
+function linkDoWhatsapp(form, dados, titulo) {
+  const linhas = [titulo, ""];
+  Object.entries(dados).forEach(([campo, valor]) => {
+    if (!valor || campo === "formulario" || campo === "dataEnvio") return;
+    linhas.push(`${rotuloDoCampo(form, campo)}: ${valor}`);
+  });
+  return `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(linhas.join("\n"))}`;
 }
 
 async function handleFormSubmit(event, form) {
   event.preventDefault();
-  const status = form.querySelector(".form-status");
-  const formulario = form.getAttribute("data-sheet-form");
 
-  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.startsWith("COLE_AQUI")) {
-    setStatus(status, "error", "Formulário ainda não conectado à planilha. Veja o SETUP.md.");
-    return;
-  }
+  const status = form.querySelector(".form-status");
+  const botao = form.querySelector('button[type="submit"]');
+  const formulario = form.getAttribute("data-sheet-form");
 
   const dados = Object.fromEntries(new FormData(form).entries());
   dados.formulario = formulario;
   dados.dataEnvio = new Date().toISOString();
 
+  /* Quando a planilha não está conectada, o visitante não pode simplesmente
+     perder o que escreveu: oferecemos o mesmo conteúdo pelo WhatsApp, que é
+     o canal que a organização já usa todo dia. */
+  const oferecerWhatsapp = (titulo, mensagem) => {
+    setStatus(status, "error", mensagem, {
+      href: linkDoWhatsapp(form, dados, titulo),
+      texto: "Enviar pelo WhatsApp",
+    });
+  };
+
+  if (!backendConectado()) {
+    oferecerWhatsapp(
+      "Novo contato pelo site",
+      "O envio pelo site está temporariamente indisponível. Seus dados não foram perdidos: toque no botão abaixo para mandar tudo pelo WhatsApp."
+    );
+    rastrear("formulario_erro", formulario);
+    return;
+  }
+
+  const textoOriginal = botao ? botao.textContent : "";
+  if (botao) {
+    botao.disabled = true;
+    botao.textContent = "Enviando...";
+  }
   setStatus(status, "loading", "Enviando...");
 
   try {
@@ -459,17 +523,52 @@ async function handleFormSubmit(event, form) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dados),
     });
-    // "no-cors" não deixa ler a resposta, então assumimos sucesso
-    // quando o fetch não lança erro de rede.
-    setStatus(status, "success", "Recebemos sua solicitação! Em breve entraremos em contato.");
+    /* "no-cors" impede ler a resposta: dá para detectar falha de rede, mas
+       não um erro do servidor. Por isso a mensagem confirma o envio, sem
+       prometer que a solicitação já foi processada, e deixa um caminho de
+       retorno caso ninguém responda. */
+    setStatus(
+      status,
+      "success",
+      "Enviado. A coordenação recebe as respostas e entra em contato pelo WhatsApp ou e-mail que você informou. Se preferir adiantar, fale com a gente pelo WhatsApp."
+    );
     form.reset();
+    rastrear("formulario_enviado", formulario);
   } catch (erro) {
-    setStatus(status, "error", "Não foi possível enviar agora. Tente novamente ou fale pelo WhatsApp.");
+    oferecerWhatsapp(
+      "Novo contato pelo site",
+      "Não conseguimos enviar agora — pode ter sido a conexão. Seus dados não foram perdidos: toque no botão abaixo para mandar tudo pelo WhatsApp."
+    );
+    rastrear("formulario_erro", formulario);
+  } finally {
+    if (botao) {
+      botao.disabled = false;
+      botao.textContent = textoOriginal;
+    }
   }
 }
 
-function setStatus(el, tipo, mensagem) {
+function setStatus(el, tipo, mensagem, acao) {
   if (!el) return;
   el.className = `form-status ${tipo}`;
   el.textContent = mensagem;
+
+  if (acao) {
+    const link = document.createElement("a");
+    link.className = "btn btn-primary btn-small form-status-acao";
+    link.href = acao.href;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.textContent = acao.texto;
+    el.appendChild(link);
+  }
+
+  /* Leva o foco para o aviso: sem isso, quem navega por teclado ou usa
+     leitor de tela continua no botão e não percebe o que aconteceu.
+     role="status" já está no HTML, então a mensagem também é anunciada. */
+  if (tipo !== "loading") {
+    el.setAttribute("tabindex", "-1");
+    el.focus({ preventScroll: false });
+  }
 }
+

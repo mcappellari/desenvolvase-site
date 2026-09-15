@@ -1142,19 +1142,51 @@ textarea:focus {
   display: none;
 }
 
-.form-status.success {
-  color: var(--card-accent);
+/* o aviso recebe foco depois do envio; sem contorno próprio ele apareceria
+   com o contorno padrão do navegador, que some sobre o cartão creme */
+.form-status:focus-visible {
+  outline: 3px solid var(--card-accent);
+  outline-offset: 4px;
+}
+
+.form-status.success,
+.form-status.error,
+.form-status.loading {
   display: block;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.form-status.success {
+  color: var(--card-accent-deep);
+  background: var(--canopy-pastel);
+  border: 1px solid var(--canopy-deep);
 }
 
 .form-status.error {
-  color: #b3261e;
-  display: block;
+  color: #8a1c16;
+  background: #fdecea;
+  border: 1px solid #e4b4af;
 }
 
 .form-status.loading {
   color: var(--card-ink-muted);
-  display: block;
+  background: var(--card-inset);
+  border: 1px solid var(--card-line);
+}
+
+/* botão de saída pelo WhatsApp, quando o envio pelo site não é possível */
+.form-status-acao {
+  display: inline-flex;
+  margin-top: 12px;
+}
+
+/* enquanto envia, o botão fica travado para não duplicar o registro */
+form[data-sheet-form] button[type="submit"]:disabled {
+  opacity: 0.65;
+  cursor: progress;
 }
 
 /* =========================================================
