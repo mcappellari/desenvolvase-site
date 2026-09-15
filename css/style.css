@@ -339,6 +339,8 @@ section {
 .footer-logo-img {
   height: 44px;
   width: 44px;
+  /* o box é quadrado e o logo não é: sem isto a imagem estica */
+  object-fit: contain;
   display: inline-block;
   vertical-align: middle;
   margin-right: 10px;
@@ -517,9 +519,15 @@ section {
   background: var(--paper-raised);
 }
 
+/* Os atributos width/height do HTML entram como dica de estilo
+   (height: 800px), então fixar só a largura estica o logo. Deixando os
+   dois em auto e limitando por max-*, a proporção manda e a imagem se
+   ajusta ao lado mais apertado do slide 4/3. */
 .hero-logo {
-  width: 60%;
-  min-width: 150px;
+  width: auto;
+  height: auto;
+  max-width: 60%;
+  max-height: 100%;
 }
 
 .hero-photo {
