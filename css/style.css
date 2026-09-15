@@ -2154,6 +2154,173 @@ a.channel:hover .channel-go svg {
   }
 }
 
+/* procedência dos números de impacto, logo abaixo deles */
+.stats-nota {
+  margin: 22px 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+/* =========================================================
+   Doação PIX
+   ========================================================= */
+.pix-box {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 34px;
+  align-items: center;
+  background: var(--paper-raised);
+  color: var(--card-ink);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-lg);
+  padding: 34px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.pix-qr {
+  margin: 0;
+  text-align: center;
+}
+
+/* fundo branco e largura fixa: o QR precisa de contraste e de zona de silêncio */
+.pix-qr img {
+  width: 216px;
+  height: 216px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--card-line);
+  padding: 8px;
+}
+
+.pix-qr figcaption {
+  margin-top: 12px;
+  max-width: 216px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--card-ink-muted);
+}
+
+.pix-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--card-ink-muted);
+  margin: 0 0 6px;
+}
+
+.pix-chave {
+  font-family: var(--font-mono);
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  font-weight: 700;
+  color: var(--card-accent-deep);
+  margin: 0 0 18px;
+  /* o visitante precisa conseguir selecionar e copiar na mão */
+  user-select: all;
+  word-break: break-all;
+}
+
+#pix-copiar svg {
+  width: 18px;
+  height: 18px;
+}
+
+.pix-feedback {
+  min-height: 1.4em;
+  margin: 12px 0 0;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--card-accent);
+}
+
+.pix-feedback.erro {
+  color: var(--trunk-ink);
+}
+
+.pix-manual {
+  font-size: 0.86rem;
+  color: var(--card-ink-muted);
+  margin: 6px 0 0;
+}
+
+.pix-recebedor {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 16px;
+  margin: 22px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--card-line);
+  font-size: 0.92rem;
+}
+
+.pix-recebedor dt {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--card-ink-muted);
+  align-self: center;
+}
+
+.pix-recebedor dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--card-ink);
+}
+
+.pix-seguranca {
+  max-width: 860px;
+  margin: 26px auto 0;
+}
+
+.pix-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.pix-checklist li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 0.94rem;
+  color: var(--card-ink-muted);
+}
+
+.pix-checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--card-accent);
+}
+
+.pix-checklist strong {
+  color: var(--card-ink);
+}
+
+@media (max-width: 720px) {
+  .pix-box {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    padding: 28px 22px;
+  }
+
+  .pix-recebedor {
+    text-align: left;
+  }
+}
+
 /* =========================================================
    CTA band — deeper green, before the footer
    ========================================================= */

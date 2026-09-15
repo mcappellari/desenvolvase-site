@@ -66,24 +66,102 @@
     </div>
   </section>
 
-  <section>
+  <!--
+    DADOS DA DOAÇÃO PIX — conferir antes de qualquer alteração.
+    Chave PIX: o CNPJ da organização (o mesmo que consta no rodapé de todas
+    as páginas). É exibida formatada e copiada sem pontuação, que é o
+    formato registrado no Banco Central.
+
+    PENDENTE DE CONFIRMAÇÃO DA ORGANIZAÇÃO (ver relatório):
+    - Razão social exata que o banco exibe ao pagador. Abaixo usamos o nome
+      institucional "Desenvolva-se"; se o banco mostrar outro nome, corrija
+      aqui, porque o texto pede que o doador confira esse dado.
+    - Se o QR Code é estático (sem valor e sem validade) ou de cobrança
+      (com valor fixo / expiração). Se for de cobrança, ele NÃO serve para
+      uma página de doação e deve ser removido daqui.
+  -->
+  <section id="pix">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">Como ajudar</span>
-        <h2>Formas de contribuir</h2>
+        <span class="eyebrow">Doação via PIX</span>
+        <h2>Doe em menos de um minuto</h2>
+        <p>A doação cai direto na conta do Desenvolva-se, sem intermediário. Escaneie o código ou copie a chave.</p>
+      </div>
+
+      <div class="pix-box">
+        <figure class="pix-qr">
+          <img src="qrcode-pix.png" width="512" height="512"
+               alt="QR Code para doação via PIX ao Desenvolva-se" />
+          <figcaption>Abra o app do seu banco, escolha PIX e aponte a câmera para o código.</figcaption>
+        </figure>
+
+        <div class="pix-dados">
+          <p class="pix-label" id="pix-chave-label">Chave PIX (CNPJ)</p>
+          <p class="pix-chave" aria-labelledby="pix-chave-label">61.023.657/0001-69</p>
+
+          <button type="button" class="btn btn-primary" id="pix-copiar" data-chave="61023657000169">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+            Copiar chave PIX
+          </button>
+
+          <p class="pix-feedback" id="pix-feedback" role="status" aria-live="polite"></p>
+
+          <p class="pix-manual">A chave é copiada sem pontuação, como os bancos esperam. Se o botão não funcionar no seu navegador, selecione o número acima e copie manualmente.</p>
+
+          <dl class="pix-recebedor">
+            <dt>Recebedor</dt>
+            <dd>Desenvolva-se</dd>
+            <dt>CNPJ</dt>
+            <dd>61.023.657/0001-69</dd>
+            <dt>Instituição</dt>
+            <dd>Sicredi</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="card pix-seguranca">
+        <div class="card-head">
+          <div class="icon-badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.2-3 7.4-7 9-4-1.6-7-4.8-7-9V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Antes de confirmar, confira</h3>
+        </div>
+        <ul class="pix-checklist">
+          <li>O app do seu banco deve mostrar o <strong>CNPJ 61.023.657/0001-69</strong> antes de você concluir. Se aparecer outro, não conclua.</li>
+          <li>Desconfie de qualquer mensagem que peça doação para uma chave PIX diferente da que está nesta página.</li>
+          <li>Nenhum valor é sugerido aqui: você escolhe quanto doar no seu próprio banco.</li>
+        </ul>
       </div>
     </div>
-    <div class="container grid grid-2">
-      <div class="card">
-        <h3>Doe via PIX</h3>
-        <p>Use a chave PIX abaixo (CNPJ) para fazer sua doação diretamente para o Desenvolva-se:</p>
-        <p style="font-size:1.2rem; font-weight:700; color:var(--card-accent)">61.023.657/0001-69</p>
-        <p><em>Em breve, disponibilizaremos aqui um QR Code para pagamento via PIX.</em></p>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Outras formas</span>
+        <h2>Nem toda ajuda é em dinheiro</h2>
       </div>
-      <div class="card">
-        <h3>Seja um parceiro</h3>
-        <p>Empresas podem apoiar o Desenvolva-se com doações recorrentes, patrocínio de campanhas, doação de equipamentos (via tiConectaRS) ou voluntariado corporativo.</p>
-        <a href="ticonectars.html">Conheça o tiConectaRS →</a>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-head">
+            <div class="icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+            </div>
+            <h3>Doe equipamentos</h3>
+          </div>
+          <p>Computadores e notebooks parados na empresa ou em casa viram sala de informática de escola, cadastro de hospital e primeiro acesso de casa de acolhimento.</p>
+          <p><a href="ticonectars.html#doar">Doar pelo tiConectaRS →</a></p>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div class="icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M17 11h4M19 9v4"/></svg>
+            </div>
+            <h3>Doe tempo</h3>
+          </div>
+          <p>As aulas de sábado existem porque profissionais doam a manhã. Empresas também apoiam com voluntariado corporativo e patrocínio de campanhas.</p>
+          <p><a href="voluntario.html">Ser voluntário →</a></p>
+        </div>
       </div>
     </div>
   </section>

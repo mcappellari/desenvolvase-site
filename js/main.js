@@ -9,7 +9,87 @@ document.addEventListener("DOMContentLoaded", () => {
   initCounters();
   initHeroCarousel();
   initContatoConsole();
+  initPixCopy();
 });
+
+/**
+ * Envia um evento anônimo de uso. Só repassa o nome do evento e rótulos
+ * fixos definidos no código — nunca nome, telefone, e-mail ou mensagem
+ * digitados pelo visitante.
+ *
+ * Hoje o site não tem ferramenta de analytics instalada, então isto não
+ * envia nada: apenas empilha em window.dataLayer, que é o formato lido
+ * por GA4/Google Tag Manager assim que um deles for adicionado.
+ * Os nomes de evento estão documentados no SETUP.md.
+ */
+function rastrear(evento, rotulo) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(rotulo ? { event: evento, rotulo: rotulo } : { event: evento });
+}
+
+// Copia a chave PIX com retorno acessível e caminho manual de reserva.
+function initPixCopy() {
+  const botao = document.getElementById("pix-copiar");
+  if (!botao) return;
+
+  const retorno = document.getElementById("pix-feedback");
+  const chave = botao.dataset.chave;
+  let limpeza = null;
+
+  const avisar = (texto, copiou) => {
+    retorno.textContent = texto;
+    retorno.classList.toggle("erro", !copiou);
+    clearTimeout(limpeza);
+    limpeza = setTimeout(() => {
+      retorno.textContent = "";
+      retorno.classList.remove("erro");
+    }, 8000);
+  };
+
+  // Reserva para navegadores sem a API de área de transferência
+  // (ou em páginas servidas sem HTTPS, onde ela fica indisponível).
+  const copiaDeReserva = () => {
+    const campo = document.createElement("textarea");
+    campo.value = chave;
+    campo.setAttribute("readonly", "");
+    campo.style.position = "fixed";
+    campo.style.top = "0";
+    campo.style.opacity = "0";
+    document.body.appendChild(campo);
+    campo.select();
+    let copiou = false;
+    try {
+      copiou = document.execCommand("copy");
+    } catch (erro) {
+      copiou = false;
+    }
+    document.body.removeChild(campo);
+    return copiou;
+  };
+
+  botao.addEventListener("click", async () => {
+    let copiou = false;
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(chave);
+        copiou = true;
+      } catch (erro) {
+        copiou = false;
+      }
+    }
+
+    if (!copiou) copiou = copiaDeReserva();
+
+    if (copiou) {
+      avisar("Chave PIX copiada. Agora é só colar no app do seu banco.", true);
+      rastrear("pix_chave_copiada");
+    } else {
+      avisar("Não conseguimos copiar automaticamente. Selecione o número acima e copie manualmente.", false);
+      rastrear("pix_copia_falhou");
+    }
+  });
+}
 
 // Página de contato: escolher o assunto adapta o formulário (sugestão de
 // escrita + atalho para o formulário certo), e a trilha de circuito acima
