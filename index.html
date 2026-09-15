@@ -115,38 +115,38 @@
                class="hero-logo" width="608" height="800" fetchpriority="high" decoding="async" />
         </div>
         <div class="hero-slide" aria-hidden="true">
-          <img src="fotos/foto1-sala-tecnologia.jpeg" alt="Alunos em aula de tecnologia, com violões na parede ao fundo"
-               class="hero-photo" width="1280" height="591" loading="lazy" decoding="async" />
+          <img data-src="fotos/foto1-sala-tecnologia.jpeg" alt="Alunos em aula de tecnologia, com violões na parede ao fundo"
+               class="hero-photo" width="1280" height="591" decoding="async" />
           <span class="hero-caption">Turma 2025 · Tecnologia que Transforma</span>
         </div>
         <div class="hero-slide" aria-hidden="true">
-          <img src="fotos/aula_musica.jpeg" alt="Turma de violão reunida com os instrutores"
-               class="hero-photo" width="1600" height="1200" loading="lazy" decoding="async" />
+          <img data-src="fotos/aula_musica.jpeg" alt="Turma de violão reunida com os instrutores"
+               class="hero-photo" width="1600" height="1200" decoding="async" />
           <span class="hero-caption">Aula de Violão · Música</span>
         </div>
         <div class="hero-slide" aria-hidden="true">
-          <img src="fotos/doacao_computadores3.jpeg" alt="Entrega de computadores recuperados a uma instituição parceira"
-               class="hero-photo" width="1280" height="960" loading="lazy" decoding="async" />
+          <img data-src="fotos/doacao_computadores3.jpeg" alt="Entrega de computadores recuperados a uma instituição parceira"
+               class="hero-photo" width="1280" height="960" decoding="async" />
           <span class="hero-caption">tiConectaRS · Equipamentos Entregues</span>
         </div>
         <div class="hero-slide" aria-hidden="true">
-          <img src="fotos/foto3-acao-social.jpeg" alt="Alunos e voluntários reunidos durante a campanha McDia Feliz"
-               class="hero-photo" width="1280" height="960" loading="lazy" decoding="async" />
+          <img data-src="fotos/foto3-acao-social.jpeg" alt="Alunos e voluntários reunidos durante a campanha McDia Feliz"
+               class="hero-photo" width="1280" height="960" decoding="async" />
           <span class="hero-caption">McDia Feliz · Ações Sociais</span>
         </div>
         <div class="hero-slide" aria-hidden="true">
-          <img src="fotos/foto4-acao-social.jpeg" alt="Distribuição de doações de alimentos para famílias apoiadas"
-               class="hero-photo" width="1280" height="960" loading="lazy" decoding="async" />
+          <img data-src="fotos/foto4-acao-social.jpeg" alt="Distribuição de doações de alimentos para famílias apoiadas"
+               class="hero-photo" width="1280" height="960" decoding="async" />
           <span class="hero-caption">Doação de Alimentos · Ações Sociais</span>
         </div>
         <div class="hero-slide" aria-hidden="true">
-          <img src="fotos/doacao_computadores.jpeg" alt="Computadores recondicionados prontos para doação"
-               class="hero-photo" width="960" height="1280" loading="lazy" decoding="async" />
+          <img data-src="fotos/doacao_computadores.jpeg" alt="Computadores recondicionados prontos para doação"
+               class="hero-photo" width="960" height="1280" decoding="async" />
           <span class="hero-caption">tiConectaRS · Equipamentos Recondicionados</span>
         </div>
         <div class="hero-slide" aria-hidden="true">
-          <img src="fotos/doacao_gremio.jpeg" alt="Equipe do Desenvolva-se durante entrega de equipamentos no Instituto Geração Tricolor"
-               class="hero-photo" width="960" height="1280" loading="lazy" decoding="async" />
+          <img data-src="fotos/doacao_gremio.jpeg" alt="Equipe do Desenvolva-se durante entrega de equipamentos no Instituto Geração Tricolor"
+               class="hero-photo" width="960" height="1280" decoding="async" />
           <span class="hero-caption">tiConectaRS · Entrega no Instituto Geração Tricolor</span>
         </div>
 
@@ -264,13 +264,33 @@
         substituto temporário.
       -->
       <div class="instagram-grid">
-        <a class="ph wide" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener" style="background-image:url('fotos/foto3-acao-social.jpeg')"></a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener" style="background-image:url('fotos/foto1-sala-tecnologia.jpeg')"></a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener" style="background-image:url('fotos/aula_musica.jpeg')"></a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener" style="background-image:url('fotos/doacao_computadores3.jpeg')"></a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener" style="background-image:url('fotos/foto4-acao-social.jpeg')"></a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener" style="background-image:url('fotos/doacao_gremio.jpeg')"></a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener" style="background-image:url('fotos/doacao_computadores.jpeg')"></a>
+        <!--
+          Estas fotos eram background-image de CSS, que o navegador baixa
+          no carregamento mesmo estando abaixo da dobra — fundo de CSS não
+          aceita loading="lazy". Como <img> elas adiam de verdade e ainda
+          ganham alt próprio.
+        -->
+        <a class="ph wide" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
+          <img src="fotos/foto3-acao-social.jpeg" alt="Alunos e voluntários reunidos durante a campanha McDia Feliz" width="1280" height="960" loading="lazy" decoding="async" />
+        </a>
+        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
+          <img src="fotos/foto1-sala-tecnologia.jpeg" alt="Alunos em aula de tecnologia, com violões na parede ao fundo" width="1280" height="591" loading="lazy" decoding="async" />
+        </a>
+        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
+          <img src="fotos/aula_musica.jpeg" alt="Turma de violão reunida com os instrutores" width="1600" height="1200" loading="lazy" decoding="async" />
+        </a>
+        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
+          <img src="fotos/doacao_computadores3.jpeg" alt="Entrega de computadores recuperados a uma instituição parceira" width="1280" height="960" loading="lazy" decoding="async" />
+        </a>
+        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
+          <img src="fotos/foto4-acao-social.jpeg" alt="Distribuição de doações de alimentos para famílias apoiadas" width="1280" height="960" loading="lazy" decoding="async" />
+        </a>
+        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
+          <img src="fotos/doacao_gremio.jpeg" alt="Equipe do Desenvolva-se durante entrega de equipamentos no Instituto Geração Tricolor" width="960" height="1280" loading="lazy" decoding="async" />
+        </a>
+        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
+          <img src="fotos/doacao_computadores.jpeg" alt="Computadores recondicionados prontos para doação" width="960" height="1280" loading="lazy" decoding="async" />
+        </a>
       </div>
     </div>
   </section>

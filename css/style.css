@@ -1206,9 +1206,17 @@ textarea:focus {
   margin-top: 24px;
 }
 
+.instagram-grid .ph img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .instagram-grid .ph {
   aspect-ratio: 1;
   border-radius: 16px;
+  overflow: hidden;
   display: block;
   text-decoration: none;
   background-color: var(--paper-raised);

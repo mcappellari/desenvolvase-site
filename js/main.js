@@ -176,6 +176,18 @@ function initHeroCarousel() {
   let timer = null;
   // pausa temporária, enquanto o ponteiro ou o foco está sobre o carrossel
   let suspenso = false;
+
+  /* loading="lazy" não serve aqui: os 8 quadros ficam empilhados em
+     inset:0 no topo da página, então o navegador considera todos dentro
+     da viewport e baixa os 8 de uma vez. Quem decide quando baixar passa
+     a ser este código: só o primeiro quadro tem src no HTML, os demais
+     guardam o caminho em data-src. */
+  const hidratar = (i) => {
+    const img = slides[i]?.querySelector("img[data-src]");
+    if (!img) return;
+    img.src = img.dataset.src;
+    delete img.dataset.src;
+  };
   // pausa deliberada, pelo botão: vale até o visitante desfazer
   let pausadoPeloUsuario = false;
   const prefereMenosMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -187,6 +199,10 @@ function initHeroCarousel() {
     dots[index]?.removeAttribute("aria-current");
 
     index = (next + slides.length) % slides.length;
+
+    // garante a foto que vai aparecer e adianta a seguinte
+    hidratar(index);
+    hidratar((index + 1) % slides.length);
 
     slides[index].classList.add("active");
     // o quadro visível precisa ser legível por leitor de tela; os outros não
@@ -257,6 +273,26 @@ function initHeroCarousel() {
   root.addEventListener("mouseleave", () => (suspenso = false));
   root.addEventListener("focusin", () => (suspenso = true));
   root.addEventListener("focusout", () => (suspenso = false));
+
+  /* As fotos restantes só depois do load, e então em ociosidade. Esperar
+     apenas o idle não basta: em conexão rápida o navegador fica ocioso
+     antes de a página terminar de carregar e as fotos voltam a disputar
+     banda com o primeiro paint. */
+  const carregarResto = () => slides.forEach((_, i) => hidratar(i));
+  const agendarResto = () => {
+    hidratar(1); // a próxima do ciclo fica pronta antes da primeira troca
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(carregarResto, { timeout: 5000 });
+    } else {
+      setTimeout(carregarResto, 2500);
+    }
+  };
+
+  if (document.readyState === "complete") {
+    agendarResto();
+  } else {
+    window.addEventListener("load", agendarResto, { once: true });
+  }
 
   restartTimer();
 }
