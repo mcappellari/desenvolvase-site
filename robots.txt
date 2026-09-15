@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# O deploy do Azure Static Web Apps publica a raiz do repositorio inteira
+# (app_location "/", output_location "."), entao a documentacao interna
+# tambem fica acessivel. Ela nao deve ser indexada.
+Disallow: /SETUP.md
+Disallow: /README.md
+
+Sitemap: https://desenvolvase.org.br/sitemap.xml

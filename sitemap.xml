@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  URLs com .html, que e o padrao ja usado por todos os links internos do
+  site. A home e a unica excecao: responde na raiz do dominio.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://desenvolvase.org.br/</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://desenvolvase.org.br/quem-somos.html</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://desenvolvase.org.br/informatica.html</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://desenvolvase.org.br/musica.html</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://desenvolvase.org.br/ticonectars.html</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://desenvolvase.org.br/acao-social.html</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://desenvolvase.org.br/voluntario.html</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://desenvolvase.org.br/contribua.html</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://desenvolvase.org.br/contato.html</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://desenvolvase.org.br/cadastro-alunos.html</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+</urlset>
