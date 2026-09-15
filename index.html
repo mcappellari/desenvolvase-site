@@ -6,6 +6,8 @@
   <title>Desenvolva-se | Raízes Fortes, Futuro Brilhante</title>
   <meta name="description" content="Desenvolva-se é uma organização de Porto Alegre - RS que promove aulas de informática e música, recondicionamento de computadores (tiConectaRS) e ações sociais para jovens e comunidades vulneráveis." />
   <link rel="canonical" href="https://desenvolvase.org.br/" />
+  <!-- primeiro quadro do carrossel: é o LCP da home, então busca prioritária -->
+  <link rel="preload" as="image" href="logo_desenvolvase_transparent.png" fetchpriority="high" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Desenvolva-se" />
   <meta property="og:locale" content="pt_BR" />
@@ -100,47 +102,68 @@
           <a href="voluntario.html" class="btn btn-outline">Seja Voluntário</a>
         </div>
       </div>
-      <div class="hero-image hero-visual hero-carousel" id="hero-carousel">
+      <!--
+        O primeiro quadro ja vem com a classe "active" no HTML e o CSS o
+        deixa visivel: sem JavaScript, ou antes dele, o visitante ve a
+        imagem em vez de um retangulo vazio. Os demais quadros sao
+        preguicosos e ficam escondidos de leitores de tela ate entrarem.
+      -->
+      <div class="hero-image hero-visual hero-carousel" id="hero-carousel"
+           role="group" aria-roledescription="carrossel" aria-label="Imagens do Desenvolva-se">
         <div class="hero-slide slide-logo active">
-          <img src="logo_desenvolvase_transparent.png" alt="Desenvolva-se" class="hero-logo" />
+          <img src="logo_desenvolvase_transparent.png" alt="Logo do Desenvolva-se: uma árvore cujo tronco são três figuras humanas e cujas raízes formam trilhas de circuito"
+               class="hero-logo" width="608" height="800" fetchpriority="high" decoding="async" />
         </div>
-        <div class="hero-slide">
-          <img src="fotos/foto1-sala-tecnologia.jpeg" alt="Alunos em aula de tecnologia, com violões na parede ao fundo" class="hero-photo" />
+        <div class="hero-slide" aria-hidden="true">
+          <img src="fotos/foto1-sala-tecnologia.jpeg" alt="Alunos em aula de tecnologia, com violões na parede ao fundo"
+               class="hero-photo" width="1280" height="591" loading="lazy" decoding="async" />
           <span class="hero-caption">Turma 2025 · Tecnologia que Transforma</span>
         </div>
-        <div class="hero-slide">
-          <img src="fotos/aula_musica.jpeg" alt="Turma de violão reunida com os instrutores" class="hero-photo" />
+        <div class="hero-slide" aria-hidden="true">
+          <img src="fotos/aula_musica.jpeg" alt="Turma de violão reunida com os instrutores"
+               class="hero-photo" width="1600" height="1200" loading="lazy" decoding="async" />
           <span class="hero-caption">Aula de Violão · Música</span>
         </div>
-        <div class="hero-slide">
-          <img src="fotos/doacao_computadores3.jpeg" alt="Entrega de computadores recuperados a uma instituição parceira" class="hero-photo" />
+        <div class="hero-slide" aria-hidden="true">
+          <img src="fotos/doacao_computadores3.jpeg" alt="Entrega de computadores recuperados a uma instituição parceira"
+               class="hero-photo" width="1280" height="960" loading="lazy" decoding="async" />
           <span class="hero-caption">tiConectaRS · Equipamentos Entregues</span>
         </div>
-        <div class="hero-slide">
-          <img src="fotos/foto3-acao-social.jpeg" alt="Alunos e voluntários reunidos durante a campanha McDia Feliz" class="hero-photo" />
+        <div class="hero-slide" aria-hidden="true">
+          <img src="fotos/foto3-acao-social.jpeg" alt="Alunos e voluntários reunidos durante a campanha McDia Feliz"
+               class="hero-photo" width="1280" height="960" loading="lazy" decoding="async" />
           <span class="hero-caption">McDia Feliz · Ações Sociais</span>
         </div>
-        <div class="hero-slide">
-          <img src="fotos/foto4-acao-social.jpeg" alt="Distribuição de doações de alimentos para famílias apoiadas" class="hero-photo" />
+        <div class="hero-slide" aria-hidden="true">
+          <img src="fotos/foto4-acao-social.jpeg" alt="Distribuição de doações de alimentos para famílias apoiadas"
+               class="hero-photo" width="1280" height="960" loading="lazy" decoding="async" />
           <span class="hero-caption">Doação de Alimentos · Ações Sociais</span>
         </div>
-        <div class="hero-slide">
-          <img src="fotos/doacao_computadores.jpeg" alt="Computadores recondicionados prontos para doação" class="hero-photo" />
+        <div class="hero-slide" aria-hidden="true">
+          <img src="fotos/doacao_computadores.jpeg" alt="Computadores recondicionados prontos para doação"
+               class="hero-photo" width="960" height="1280" loading="lazy" decoding="async" />
           <span class="hero-caption">tiConectaRS · Equipamentos Recondicionados</span>
         </div>
-        <div class="hero-slide">
-          <img src="fotos/doacao_gremio.jpeg" alt="Equipe do Desenvolva-se em visita ao Instituto Geração Tricolor do Grêmio" class="hero-photo" />
-          <span class="hero-caption">tiConectaRS · Parceria com o Grêmio</span>
+        <div class="hero-slide" aria-hidden="true">
+          <img src="fotos/doacao_gremio.jpeg" alt="Equipe do Desenvolva-se durante entrega de equipamentos no Instituto Geração Tricolor"
+               class="hero-photo" width="960" height="1280" loading="lazy" decoding="async" />
+          <span class="hero-caption">tiConectaRS · Entrega no Instituto Geração Tricolor</span>
         </div>
-        <div class="hero-dots" role="tablist" aria-label="Selecionar imagem do carrossel">
-          <button type="button" role="tab" class="active" aria-selected="true" aria-label="Logo Desenvolva-se"></button>
-          <button type="button" role="tab" aria-selected="false" aria-label="Foto: turma de tecnologia 2025"></button>
-          <button type="button" role="tab" aria-selected="false" aria-label="Foto: aula de violão"></button>
-          <button type="button" role="tab" aria-selected="false" aria-label="Foto: tiConectaRS"></button>
-          <button type="button" role="tab" aria-selected="false" aria-label="Foto: McDia Feliz"></button>
-          <button type="button" role="tab" aria-selected="false" aria-label="Foto: doação de alimentos"></button>
-          <button type="button" role="tab" aria-selected="false" aria-label="Foto: equipamentos recondicionados"></button>
-          <button type="button" role="tab" aria-selected="false" aria-label="Foto: parceria com o Grêmio"></button>
+
+        <div class="hero-dots">
+          <button type="button" class="hero-pausa" id="hero-pausa" aria-pressed="false"
+                  aria-label="Pausar a troca automática de imagens">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="5" width="3.5" height="14" rx="1"/><rect x="13.5" y="5" width="3.5" height="14" rx="1"/></svg>
+          </button>
+          <span class="hero-dots-sep" aria-hidden="true"></span>
+          <button type="button" class="hero-dot active" aria-current="true" aria-label="Imagem 1 de 8: logo do Desenvolva-se"></button>
+          <button type="button" class="hero-dot" aria-label="Imagem 2 de 8: turma de tecnologia 2025"></button>
+          <button type="button" class="hero-dot" aria-label="Imagem 3 de 8: aula de violão"></button>
+          <button type="button" class="hero-dot" aria-label="Imagem 4 de 8: entrega de equipamentos do tiConectaRS"></button>
+          <button type="button" class="hero-dot" aria-label="Imagem 5 de 8: campanha McDia Feliz"></button>
+          <button type="button" class="hero-dot" aria-label="Imagem 6 de 8: doação de alimentos"></button>
+          <button type="button" class="hero-dot" aria-label="Imagem 7 de 8: equipamentos recondicionados"></button>
+          <button type="button" class="hero-dot" aria-label="Imagem 8 de 8: entrega no Instituto Geração Tricolor"></button>
         </div>
       </div>
     </div>

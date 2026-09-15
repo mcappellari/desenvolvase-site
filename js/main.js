@@ -168,29 +168,38 @@ function initHeroCarousel() {
   if (!root) return;
 
   const slides = root.querySelectorAll(".hero-slide");
-  const dots = root.querySelectorAll(".hero-dots button");
+  const dots = root.querySelectorAll(".hero-dot");
+  const botaoPausa = document.getElementById("hero-pausa");
   if (slides.length < 2) return;
 
   let index = 0;
   let timer = null;
-  let paused = false;
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // pausa temporária, enquanto o ponteiro ou o foco está sobre o carrossel
+  let suspenso = false;
+  // pausa deliberada, pelo botão: vale até o visitante desfazer
+  let pausadoPeloUsuario = false;
+  const prefereMenosMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const goTo = (next) => {
     slides[index].classList.remove("active");
+    slides[index].setAttribute("aria-hidden", "true");
     dots[index]?.classList.remove("active");
-    dots[index]?.setAttribute("aria-selected", "false");
+    dots[index]?.removeAttribute("aria-current");
+
     index = (next + slides.length) % slides.length;
+
     slides[index].classList.add("active");
+    // o quadro visível precisa ser legível por leitor de tela; os outros não
+    slides[index].removeAttribute("aria-hidden");
     dots[index]?.classList.add("active");
-    dots[index]?.setAttribute("aria-selected", "true");
+    dots[index]?.setAttribute("aria-current", "true");
   };
 
   const restartTimer = () => {
-    if (prefersReducedMotion) return;
     clearInterval(timer);
+    if (prefereMenosMovimento || pausadoPeloUsuario) return;
     timer = setInterval(() => {
-      if (!paused) goTo(index + 1);
+      if (!suspenso) goTo(index + 1);
     }, 6000);
   };
 
@@ -214,10 +223,40 @@ function initHeroCarousel() {
     });
   });
 
-  root.addEventListener("mouseenter", () => (paused = true));
-  root.addEventListener("mouseleave", () => (paused = false));
-  root.addEventListener("focusin", () => (paused = true));
-  root.addEventListener("focusout", () => (paused = false));
+  // WCAG 2.2.2: conteúdo que se move sozinho por mais de 5s precisa de um
+  // jeito explícito de parar. Pausar no hover não basta para quem navega
+  // por teclado ou toque.
+  if (botaoPausa) {
+    const iconePausa = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="5" width="3.5" height="14" rx="1"/><rect x="13.5" y="5" width="3.5" height="14" rx="1"/></svg>';
+    const iconePlay = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>';
+
+    // com movimento reduzido o carrossel já não gira: o botão vira "retomar"
+    if (prefereMenosMovimento) {
+      pausadoPeloUsuario = true;
+      botaoPausa.innerHTML = iconePlay;
+      botaoPausa.setAttribute("aria-pressed", "true");
+      botaoPausa.setAttribute("aria-label", "Retomar a troca automática de imagens");
+    }
+
+    botaoPausa.addEventListener("click", () => {
+      pausadoPeloUsuario = !pausadoPeloUsuario;
+      botaoPausa.setAttribute("aria-pressed", String(pausadoPeloUsuario));
+      botaoPausa.setAttribute(
+        "aria-label",
+        pausadoPeloUsuario
+          ? "Retomar a troca automática de imagens"
+          : "Pausar a troca automática de imagens"
+      );
+      botaoPausa.innerHTML = pausadoPeloUsuario ? iconePlay : iconePausa;
+      restartTimer();
+      rastrear(pausadoPeloUsuario ? "carrossel_pausado" : "carrossel_retomado");
+    });
+  }
+
+  root.addEventListener("mouseenter", () => (suspenso = true));
+  root.addEventListener("mouseleave", () => (suspenso = false));
+  root.addEventListener("focusin", () => (suspenso = true));
+  root.addEventListener("focusout", () => (suspenso = false));
 
   restartTimer();
 }
