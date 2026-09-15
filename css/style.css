@@ -2158,7 +2158,8 @@ a.channel:hover .channel-go svg {
 .stats-nota {
   margin: 22px 0 0;
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  /* 13,1px: é a linha que dá credibilidade aos números, precisa ser lida */
+  font-size: 0.82rem;
   letter-spacing: 0.03em;
   color: var(--ink-muted);
   text-align: center;
@@ -2206,7 +2207,8 @@ a.channel:hover .channel-go svg {
 
 .pix-label {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  /* 12,5px: rótulo de conferência de pagamento, não pode ficar miúdo */
+  font-size: 0.78rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--card-ink-muted);
@@ -2259,7 +2261,8 @@ a.channel:hover .channel-go svg {
 
 .pix-recebedor dt {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  /* mesmo motivo: é por aqui que o doador confere recebedor e CNPJ */
+  font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--card-ink-muted);
