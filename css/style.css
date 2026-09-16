@@ -9,7 +9,7 @@
   --paper: #1f6e45;
   --paper-alt: #195c39;
   --ink: #f7f6ea;
-  --ink-muted: rgba(247, 246, 234, 0.72);
+  --ink-muted: rgba(247, 246, 234, 0.85);
   --line: rgba(247, 246, 234, 0.22);
 
   /* accents used directly on the green page */
@@ -24,7 +24,7 @@
   /* card-level surface (cream cards/header floating on the green page) */
   --paper-raised: #fbf8ee;
   --card-ink: #22231c;
-  --card-ink-muted: rgba(34, 35, 28, 0.64);
+  --card-ink-muted: rgba(34, 35, 28, 0.72);
   --card-line: rgba(34, 35, 28, 0.14);
   --card-inset: rgba(34, 35, 28, 0.05);
   --card-accent: #256b39;
@@ -40,6 +40,9 @@
   /* lighter amber for large text directly on the green page (e.g. stat
      numbers) — plain --trunk doesn't clear 3:1 there */
   --trunk-bright: #f5b87a;
+  /* o verde-limão da marca dá 4.26:1 sobre o verde da página, logo abaixo
+     do mínimo. Esta variação clareada chega a 4.57:1 sem mudar o matiz. */
+  --canopy-bright: #d0e863;
   /* same idea for the root teal: --root only reaches 2.6:1 on the green page */
   --root-bright: #9cebef;
 
@@ -113,7 +116,7 @@ p {
 }
 
 a {
-  color: var(--canopy);
+  color: var(--canopy-bright);
 }
 
 .container {
@@ -287,6 +290,34 @@ section {
 /* =========================================================
    Header — a cream bar floating on the green page
    ========================================================= */
+/* Atalho de teclado. Fica fora da tela até receber foco, quando desce
+   sobre o cabeçalho. Sem ele, quem navega por teclado percorre o menu
+   inteiro em toda página antes de alcançar o texto. */
+.pular {
+  position: absolute;
+  left: 16px;
+  top: -64px;
+  z-index: 200;
+  padding: 10px 18px;
+  border-radius: 0 0 10px 10px;
+  background: var(--paper-raised);
+  color: var(--card-ink);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: top 0.2s ease;
+}
+
+.pular:focus {
+  top: 0;
+}
+
+/* o <main> recebe foco pelo atalho; o contorno padrão sobre ele não
+   comunica nada, já que o alvo é a página inteira */
+main:focus {
+  outline: none;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -344,6 +375,13 @@ section {
   display: inline-block;
   vertical-align: middle;
   margin-right: 10px;
+}
+
+/* WCAG 2.5.8: o alvo de toque precisa de 24x24px. Só o texto dava 18px
+   de altura, então o preenchimento vertical entra para alcançar 30px. */
+.main-nav > ul > li > a {
+  display: inline-block;
+  padding: 6px 2px;
 }
 
 .main-nav ul {
@@ -562,7 +600,9 @@ section {
   bottom: 16px;
   transform: translateX(-50%);
   display: flex;
-  gap: 8px;
+  /* 8px de ponto + 16px de intervalo = 24px de passo, exatamente a largura
+     da área tocável abaixo: os alvos encostam sem se sobrepor */
+  gap: 16px;
   padding: 7px 11px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.6);
@@ -586,14 +626,16 @@ section {
   transform: scale(1.3);
 }
 
-/* o ponto tem 8px, mas a área tocável precisa ser confortável no celular */
+/* o ponto tem 8px, mas a área tocável precisa dos 24px que a WCAG 2.5.8
+   exige. A 30px as áreas vizinhas se invadiam e o ponto da direita, por
+   estar acima na ordem de pintura, roubava parte do clique do anterior. */
 .hero-dot::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   transform: translate(-50%, -50%);
 }
 
@@ -1136,6 +1178,18 @@ textarea:focus {
   box-shadow: 0 0 0 4px var(--canopy-tint);
 }
 
+/* o que acontece depois do envio. Fica acima do botão porque ali ainda
+   pode influenciar a decisão de enviar, em vez de virar aviso pós-fato */
+.form-nota {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--card-accent);
+  border-radius: 0 10px 10px 0;
+  background: var(--card-inset);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
 .form-status {
   margin-top: 14px;
   font-weight: 600;
@@ -1457,7 +1511,9 @@ a.channel:hover {
   background: var(--canopy);
   color: var(--on-accent);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  /* 0.72rem dava 11.5px, abaixo do piso de legibilidade — e em versal,
+     onde a falta de hastes ascendentes e descendentes piora a leitura */
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1776,7 +1832,9 @@ a.channel:hover .channel-go svg {
   font-size: 0.8rem;
   letter-spacing: 0.02em;
   color: var(--ink);
-  background: rgba(247, 246, 234, 0.14);
+  /* o véu precisa ficar discreto: a 0.14 ele clareava o verde a ponto de
+     o texto creme por cima cair para 4.3:1 */
+  background: rgba(247, 246, 234, 0.08);
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 7px 15px;
@@ -2037,7 +2095,7 @@ a.channel:hover .channel-go svg {
 
 .info-label {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-muted);

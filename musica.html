@@ -33,6 +33,8 @@
   <link rel="icon" type="image/png" href="logo_desenvolvase_web.png" />
 </head>
 <body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
 
   <header class="site-header">
     <div class="container header-inner">
@@ -72,6 +74,8 @@
       </button>
     </div>
   </header>
+
+  <main id="conteudo" tabindex="-1">
 
   <section class="page-hero has-photo" style="background-image:url('fotos/musica-familias.jpeg')">
     <div class="container">
@@ -226,35 +230,38 @@
         <div class="form-row two-col">
           <div>
             <label for="mus-nome">Nome completo</label>
-            <input type="text" id="mus-nome" name="nome" required />
+            <input type="text" id="mus-nome" name="nome" autocomplete="section-aluno name" required />
           </div>
           <div>
             <label for="mus-idade">Idade</label>
-            <input type="number" id="mus-idade" name="idade" min="1" max="120" required />
+            <input type="number" id="mus-idade" name="idade" autocomplete="off" min="1" max="120" required />
           </div>
         </div>
         <div class="form-row two-col">
           <div>
             <label for="mus-telefone">Telefone / WhatsApp</label>
-            <input type="tel" id="mus-telefone" name="telefone" placeholder="(51) 90000-0000" required />
+            <input type="tel" id="mus-telefone" name="telefone" autocomplete="section-responsavel tel" placeholder="(51) 90000-0000" required />
           </div>
           <div>
             <label for="mus-email">E-mail</label>
-            <input type="email" id="mus-email" name="email" />
+            <input type="email" id="mus-email" name="email" autocomplete="section-responsavel email" />
           </div>
         </div>
         <div class="form-row">
           <div>
             <label for="mus-mensagem">Já teve contato com violão antes?</label>
-            <textarea id="mus-mensagem" name="mensagem" rows="3" placeholder="Conte se já tocou alguma vez, ou se está começando do zero — os dois são bem-vindos."></textarea>
+            <textarea id="mus-mensagem" name="mensagem" autocomplete="off" rows="3" placeholder="Conte se já tocou alguma vez, ou se está começando do zero — os dois são bem-vindos."></textarea>
           </div>
         </div>
+        <p class="form-nota"><strong>O que acontece depois:</strong> sua resposta vai para uma planilha privada do projeto, que só a coordenação acessa. O retorno vem pelo WhatsApp ou e-mail que você informar.</p>
         <button type="submit" class="btn btn-primary">Entrar na lista de espera</button>
         <p class="form-status" role="status"></p>
       </form>
       <p style="text-align:center; margin-top:20px;">Já é aluno? <a href="cadastro-alunos.html">Atualize seu cadastro aqui →</a></p>
     </div>
   </section>
+
+  </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">

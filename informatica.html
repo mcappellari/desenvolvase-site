@@ -33,6 +33,8 @@
   <link rel="icon" type="image/png" href="logo_desenvolvase_web.png" />
 </head>
 <body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
 
   <header class="site-header">
     <div class="container header-inner">
@@ -72,6 +74,8 @@
       </button>
     </div>
   </header>
+
+  <main id="conteudo" tabindex="-1">
 
   <section class="page-hero has-photo" style="background-image:url('fotos/foto1-sala-tecnologia.jpeg')">
     <div class="container">
@@ -321,11 +325,11 @@
         <div class="form-row two-col">
           <div>
             <label for="info-nome">Nome do(a) jovem</label>
-            <input type="text" id="info-nome" name="nome" required />
+            <input type="text" id="info-nome" name="nome" autocomplete="section-aluno name" required />
           </div>
           <div>
             <label for="info-serie">Ano escolar</label>
-            <select id="info-serie" name="serie" required>
+            <select id="info-serie" name="serie" autocomplete="off" required>
               <option value="">Selecione</option>
               <option value="9º ano — Ensino Fundamental">9º ano — Ensino Fundamental</option>
               <option value="1º ano — Ensino Médio">1º ano — Ensino Médio</option>
@@ -337,31 +341,32 @@
         <div class="form-row">
           <div>
             <label for="info-escola">Escola onde estuda</label>
-            <input type="text" id="info-escola" name="escola" required />
+            <input type="text" id="info-escola" name="escola" autocomplete="off" required />
           </div>
         </div>
         <div class="form-row two-col">
           <div>
             <label for="info-responsavel">Nome do responsável</label>
-            <input type="text" id="info-responsavel" name="responsavel" required />
+            <input type="text" id="info-responsavel" name="responsavel" autocomplete="section-responsavel name" required />
           </div>
           <div>
             <label for="info-telefone">Telefone / WhatsApp</label>
-            <input type="tel" id="info-telefone" name="telefone" placeholder="(51) 90000-0000" required />
+            <input type="tel" id="info-telefone" name="telefone" autocomplete="section-responsavel tel" placeholder="(51) 90000-0000" required />
           </div>
         </div>
         <div class="form-row">
           <div>
             <label for="info-email">E-mail</label>
-            <input type="email" id="info-email" name="email" />
+            <input type="email" id="info-email" name="email" autocomplete="section-responsavel email" />
           </div>
         </div>
         <div class="form-row">
           <div>
             <label for="info-mensagem">Observações</label>
-            <textarea id="info-mensagem" name="mensagem" rows="3" placeholder="Algo que a gente deva saber sobre o jovem?"></textarea>
+            <textarea id="info-mensagem" name="mensagem" autocomplete="off" rows="3" placeholder="Algo que a gente deva saber sobre o jovem?"></textarea>
           </div>
         </div>
+        <p class="form-nota"><strong>O que acontece depois:</strong> sua resposta vai para uma planilha privada do projeto, que só a coordenação acessa. O retorno vem pelo WhatsApp ou e-mail que você informar.</p>
         <button type="submit" class="btn btn-primary">Enviar inscrição</button>
         <p class="form-status" role="status"></p>
       </form>
@@ -379,6 +384,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">

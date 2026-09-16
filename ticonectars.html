@@ -33,6 +33,8 @@
   <link rel="icon" type="image/png" href="logo_desenvolvase_web.png" />
 </head>
 <body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
 
   <header class="site-header">
     <div class="container header-inner">
@@ -72,6 +74,8 @@
       </button>
     </div>
   </header>
+
+  <main id="conteudo" tabindex="-1">
 
   <section class="page-hero has-photo" style="background-image:url('fotos/doacao_computadores3.jpeg')">
     <div class="container">
@@ -203,29 +207,30 @@
         <div class="form-row two-col">
           <div>
             <label for="doa-nome">Nome / Empresa</label>
-            <input type="text" id="doa-nome" name="nome" required />
+            <input type="text" id="doa-nome" name="nome" autocomplete="name" required />
           </div>
           <div>
             <label for="doa-telefone">Telefone / WhatsApp</label>
-            <input type="tel" id="doa-telefone" name="telefone" placeholder="(51) 90000-0000" required />
+            <input type="tel" id="doa-telefone" name="telefone" autocomplete="tel" placeholder="(51) 90000-0000" required />
           </div>
         </div>
         <div class="form-row two-col">
           <div>
             <label for="doa-quantidade">Quantidade de equipamentos</label>
-            <input type="number" id="doa-quantidade" name="quantidade" min="1" required />
+            <input type="number" id="doa-quantidade" name="quantidade" autocomplete="off" min="1" required />
           </div>
           <div>
             <label for="doa-email">E-mail</label>
-            <input type="email" id="doa-email" name="email" />
+            <input type="email" id="doa-email" name="email" autocomplete="email" />
           </div>
         </div>
         <div class="form-row">
           <div>
             <label for="doa-mensagem">Condição dos equipamentos</label>
-            <textarea id="doa-mensagem" name="mensagem" rows="3" placeholder="Ligam? Faltam peças? Quantos anos de uso, aproximadamente?"></textarea>
+            <textarea id="doa-mensagem" name="mensagem" autocomplete="off" rows="3" placeholder="Ligam? Faltam peças? Quantos anos de uso, aproximadamente?"></textarea>
           </div>
         </div>
+        <p class="form-nota"><strong>O que acontece depois:</strong> sua resposta vai para uma planilha privada do projeto, que só a coordenação acessa. O retorno vem pelo WhatsApp ou e-mail que você informar.</p>
         <button type="submit" class="btn btn-primary">Quero Doar</button>
         <p class="form-status" role="status"></p>
       </form>
@@ -306,34 +311,37 @@
         <div class="form-row two-col">
           <div>
             <label for="sol-instituicao">Nome da instituição</label>
-            <input type="text" id="sol-instituicao" name="instituicao" required />
+            <input type="text" id="sol-instituicao" name="instituicao" autocomplete="organization" required />
           </div>
           <div>
             <label for="sol-telefone">Telefone / WhatsApp</label>
-            <input type="tel" id="sol-telefone" name="telefone" placeholder="(51) 90000-0000" required />
+            <input type="tel" id="sol-telefone" name="telefone" autocomplete="tel" placeholder="(51) 90000-0000" required />
           </div>
         </div>
         <div class="form-row two-col">
           <div>
             <label for="sol-quantidade">Quantidade necessária</label>
-            <input type="number" id="sol-quantidade" name="quantidade" min="1" required />
+            <input type="number" id="sol-quantidade" name="quantidade" autocomplete="off" min="1" required />
           </div>
           <div>
             <label for="sol-email">E-mail</label>
-            <input type="email" id="sol-email" name="email" />
+            <input type="email" id="sol-email" name="email" autocomplete="email" />
           </div>
         </div>
         <div class="form-row">
           <div>
             <label for="sol-mensagem">Finalidade de uso</label>
-            <textarea id="sol-mensagem" name="mensagem" rows="3" placeholder="Para quantos alunos, pacientes ou atendidos? Qual o uso pretendido?"></textarea>
+            <textarea id="sol-mensagem" name="mensagem" autocomplete="off" rows="3" placeholder="Para quantos alunos, pacientes ou atendidos? Qual o uso pretendido?"></textarea>
           </div>
         </div>
+        <p class="form-nota"><strong>O que acontece depois:</strong> sua resposta vai para uma planilha privada do projeto, que só a coordenação acessa. O retorno vem pelo WhatsApp ou e-mail que você informar.</p>
         <button type="submit" class="btn btn-primary">Solicitar</button>
         <p class="form-status" role="status"></p>
       </form>
     </div>
   </section>
+
+  </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
