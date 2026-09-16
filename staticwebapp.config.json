@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "route": "/SETUP.md",
+      "statusCode": 404
+    },
+    {
+      "route": "/README.md",
+      "statusCode": 404
+    }
+  ]
+}

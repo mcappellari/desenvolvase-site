@@ -122,6 +122,57 @@ apontar o script para cada uma. Passo a passo:
 9. Publique o site novamente. Cada envio de formulário vai gravar uma
    linha na planilha correspondente àquele formulário.
 
+## 3b. Eventos de medição (analytics)
+
+O site ainda **não tem** Google Analytics nem Tag Manager instalado. O que
+existe é a instrumentação pronta: o arquivo `js/main.js` empurra eventos
+para `window.dataLayer`, o formato que o GA4 e o Tag Manager leem. No dia
+em que vocês colarem o código de um deles no `<head>` das páginas, os
+eventos abaixo passam a chegar sozinhos, sem mexer em mais nada.
+
+Cada evento é um objeto com a chave `event` e, quando faz sentido, um
+`rotulo` dizendo de qual formulário veio:
+
+```javascript
+window.dataLayer.push({ event: "formulario_enviado", rotulo: "matricula-musica" });
+```
+
+| Evento | Quando dispara | Tem `rotulo`? |
+|---|---|---|
+| `formulario_iniciado` | a pessoa digita no primeiro campo de um formulário | sim |
+| `formulario_enviado` | o envio foi concluído sem erro de rede | sim |
+| `formulario_erro` | o envio falhou e o botão do WhatsApp foi oferecido | sim |
+| `pix_chave_copiada` | a chave PIX foi copiada com sucesso | não |
+| `pix_copia_falhou` | o navegador recusou a cópia e o texto ficou selecionado | não |
+| `carrossel_pausado` | a pessoa pausou o carrossel da home pelo botão | não |
+| `carrossel_retomado` | a pessoa retomou o carrossel | não |
+
+O `rotulo` é o identificador do formulário, o mesmo do atributo
+`data-sheet-form` e da planilha correspondente: `matricula-informatica`,
+`matricula-musica`, `ticonectars-doacao`, `ticonectars-solicitacao`,
+`acao-social`, `voluntario`, `cadastro-alunos`, `contribua`, `contato`.
+
+Comparar `formulario_iniciado` com `formulario_enviado` mostra quantas
+pessoas começam a preencher e desistem no meio — é o número que diz se
+algum formulário está pedindo demais.
+
+**Nenhum dado pessoal é enviado.** Os eventos carregam só o nome do
+evento e o identificador do formulário. Nome, telefone, e-mail e mensagem
+nunca entram no `dataLayer`.
+
+## 3c. Arquivos que não vão para o ar
+
+O deploy publica a raiz do repositório inteira, então qualquer arquivo
+versionado responderia em `desenvolvase.org.br/<arquivo>`. O
+`staticwebapp.config.json` devolve 404 para `/SETUP.md` e `/README.md`,
+que são documentação interna. Ao criar documentação nova na raiz,
+acrescente a rota correspondente nesse arquivo.
+
+Isso não substitui o cuidado com o conteúdo: **dado que não pode vazar
+não deve ser versionado**, com ou sem bloqueio de rota. Os IDs das
+planilhas, por exemplo, ficam no `CONFIGURACAO-PRIVADA.md`, que o
+`.gitignore` mantém fora do repositório.
+
 ## 4. Publicar na hospedagem existente
 
 Como o site é só HTML/CSS/JS, basta enviar todos os arquivos desta pasta
