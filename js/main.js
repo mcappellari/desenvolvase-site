@@ -185,6 +185,14 @@ function initHeroCarousel() {
   const hidratar = (i) => {
     const img = slides[i]?.querySelector("img[data-src]");
     if (!img) return;
+    /* O <source> do WebP tem de ser preenchido ANTES do src do <img>:
+       definir o src primeiro faz o navegador fixar o JPEG na hora, e o
+       WebP que chegasse depois seria ignorado ou baixado à toa. */
+    const fonte = img.parentElement?.querySelector("source[data-srcset]");
+    if (fonte) {
+      fonte.srcset = fonte.dataset.srcset;
+      delete fonte.dataset.srcset;
+    }
     img.src = img.dataset.src;
     delete img.dataset.src;
   };

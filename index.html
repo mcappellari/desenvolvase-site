@@ -7,7 +7,9 @@
   <meta name="description" content="Desenvolva-se é uma organização de Porto Alegre - RS que promove aulas de informática e música, recondicionamento de computadores (tiConectaRS) e ações sociais para jovens e comunidades vulneráveis." />
   <link rel="canonical" href="https://desenvolvase.org.br/" />
   <!-- primeiro quadro do carrossel: é o LCP da home, então busca prioritária -->
-  <link rel="preload" as="image" href="logo_desenvolvase_transparent.png" fetchpriority="high" />
+  <!-- o type faz o navegador sem suporte a WebP ignorar este preload e
+       buscar o PNG pelo <picture> abaixo, sem baixar os dois -->
+  <link rel="preload" as="image" href="logo_desenvolvase_transparent.webp" type="image/webp" fetchpriority="high" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Desenvolva-se" />
   <meta property="og:locale" content="pt_BR" />
@@ -115,42 +117,66 @@
       <div class="hero-image hero-visual hero-carousel" id="hero-carousel"
            role="group" aria-roledescription="carrossel" aria-label="Imagens do Desenvolva-se">
         <div class="hero-slide slide-logo active">
-          <img src="logo_desenvolvase_transparent.png" alt="Logo do Desenvolva-se: uma árvore cujo tronco são três figuras humanas e cujas raízes formam trilhas de circuito"
+          <picture>
+            <source srcset="logo_desenvolvase_transparent.webp" type="image/webp" />
+            <img src="logo_desenvolvase_transparent.png" alt="Logo do Desenvolva-se: uma árvore cujo tronco são três figuras humanas e cujas raízes formam trilhas de circuito"
                class="hero-logo" width="608" height="800" fetchpriority="high" decoding="async" />
+          </picture>
         </div>
         <div class="hero-slide" aria-hidden="true">
-          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/foto1-sala-tecnologia.jpeg" alt="Alunos em aula de tecnologia, com violões na parede ao fundo"
+          <picture>
+            <source data-srcset="fotos/foto1-sala-tecnologia.webp" type="image/webp" />
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/foto1-sala-tecnologia.jpeg" alt="Alunos em aula de tecnologia, com violões na parede ao fundo"
                class="hero-photo" width="1280" height="591" decoding="async" />
+          </picture>
           <span class="hero-caption">Turma 2025 · Tecnologia que Transforma</span>
         </div>
         <div class="hero-slide" aria-hidden="true">
-          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/aula_musica.jpeg" alt="Turma de violão reunida com os instrutores"
+          <picture>
+            <source data-srcset="fotos/aula_musica.webp" type="image/webp" />
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/aula_musica.jpeg" alt="Turma de violão reunida com os instrutores"
                class="hero-photo" width="1600" height="1200" decoding="async" />
+          </picture>
           <span class="hero-caption">Aula de Violão · Música</span>
         </div>
         <div class="hero-slide" aria-hidden="true">
-          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/doacao_computadores3.jpeg" alt="Entrega de computadores recuperados a uma instituição parceira"
+          <picture>
+            <source data-srcset="fotos/doacao_computadores3.webp" type="image/webp" />
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/doacao_computadores3.jpeg" alt="Entrega de computadores recuperados a uma instituição parceira"
                class="hero-photo" width="1280" height="960" decoding="async" />
+          </picture>
           <span class="hero-caption">tiConectaRS · Equipamentos Entregues</span>
         </div>
         <div class="hero-slide" aria-hidden="true">
-          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/foto3-acao-social.jpeg" alt="Alunos e voluntários reunidos durante a campanha McDia Feliz"
+          <picture>
+            <source data-srcset="fotos/foto3-acao-social.webp" type="image/webp" />
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/foto3-acao-social.jpeg" alt="Alunos e voluntários reunidos durante a campanha McDia Feliz"
                class="hero-photo" width="1280" height="960" decoding="async" />
+          </picture>
           <span class="hero-caption">McDia Feliz · Ações Sociais</span>
         </div>
         <div class="hero-slide" aria-hidden="true">
-          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/foto4-acao-social.jpeg" alt="Distribuição de doações de alimentos para famílias apoiadas"
+          <picture>
+            <source data-srcset="fotos/foto4-acao-social.webp" type="image/webp" />
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/foto4-acao-social.jpeg" alt="Distribuição de doações de alimentos para famílias apoiadas"
                class="hero-photo" width="1280" height="960" decoding="async" />
+          </picture>
           <span class="hero-caption">Doação de Alimentos · Ações Sociais</span>
         </div>
         <div class="hero-slide" aria-hidden="true">
-          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/doacao_computadores.jpeg" alt="Computadores recondicionados prontos para doação"
+          <picture>
+            <source data-srcset="fotos/doacao_computadores.webp" type="image/webp" />
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/doacao_computadores.jpeg" alt="Computadores recondicionados prontos para doação"
                class="hero-photo" width="960" height="1280" decoding="async" />
+          </picture>
           <span class="hero-caption">tiConectaRS · Equipamentos Recondicionados</span>
         </div>
         <div class="hero-slide" aria-hidden="true">
-          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/doacao_gremio.jpeg" alt="Equipe do Desenvolva-se durante entrega de equipamentos no Instituto Geração Tricolor"
+          <picture>
+            <source data-srcset="fotos/doacao_gremio.webp" type="image/webp" />
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/doacao_gremio.jpeg" alt="Equipe do Desenvolva-se durante entrega de equipamentos no Instituto Geração Tricolor"
                class="hero-photo" width="960" height="1280" decoding="async" />
+          </picture>
           <span class="hero-caption">tiConectaRS · Entrega no Instituto Geração Tricolor</span>
         </div>
 
@@ -275,25 +301,46 @@
           ganham alt próprio.
         -->
         <a class="ph wide" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <img src="fotos/foto3-acao-social.jpeg" alt="Alunos e voluntários reunidos durante a campanha McDia Feliz" width="1280" height="960" loading="lazy" decoding="async" />
+          <picture>
+            <source srcset="fotos/foto3-acao-social.webp" type="image/webp" />
+            <img src="fotos/foto3-acao-social.jpeg" alt="Alunos e voluntários reunidos durante a campanha McDia Feliz" width="1280" height="960" loading="lazy" decoding="async" />
+          </picture>
         </a>
         <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <img src="fotos/foto1-sala-tecnologia.jpeg" alt="Alunos em aula de tecnologia, com violões na parede ao fundo" width="1280" height="591" loading="lazy" decoding="async" />
+          <picture>
+            <source srcset="fotos/foto1-sala-tecnologia.webp" type="image/webp" />
+            <img src="fotos/foto1-sala-tecnologia.jpeg" alt="Alunos em aula de tecnologia, com violões na parede ao fundo" width="1280" height="591" loading="lazy" decoding="async" />
+          </picture>
         </a>
         <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <img src="fotos/aula_musica.jpeg" alt="Turma de violão reunida com os instrutores" width="1600" height="1200" loading="lazy" decoding="async" />
+          <picture>
+            <source srcset="fotos/aula_musica.webp" type="image/webp" />
+            <img src="fotos/aula_musica.jpeg" alt="Turma de violão reunida com os instrutores" width="1600" height="1200" loading="lazy" decoding="async" />
+          </picture>
         </a>
         <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <img src="fotos/doacao_computadores3.jpeg" alt="Entrega de computadores recuperados a uma instituição parceira" width="1280" height="960" loading="lazy" decoding="async" />
+          <picture>
+            <source srcset="fotos/doacao_computadores3.webp" type="image/webp" />
+            <img src="fotos/doacao_computadores3.jpeg" alt="Entrega de computadores recuperados a uma instituição parceira" width="1280" height="960" loading="lazy" decoding="async" />
+          </picture>
         </a>
         <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <img src="fotos/foto4-acao-social.jpeg" alt="Distribuição de doações de alimentos para famílias apoiadas" width="1280" height="960" loading="lazy" decoding="async" />
+          <picture>
+            <source srcset="fotos/foto4-acao-social.webp" type="image/webp" />
+            <img src="fotos/foto4-acao-social.jpeg" alt="Distribuição de doações de alimentos para famílias apoiadas" width="1280" height="960" loading="lazy" decoding="async" />
+          </picture>
         </a>
         <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <img src="fotos/doacao_gremio.jpeg" alt="Equipe do Desenvolva-se durante entrega de equipamentos no Instituto Geração Tricolor" width="960" height="1280" loading="lazy" decoding="async" />
+          <picture>
+            <source srcset="fotos/doacao_gremio.webp" type="image/webp" />
+            <img src="fotos/doacao_gremio.jpeg" alt="Equipe do Desenvolva-se durante entrega de equipamentos no Instituto Geração Tricolor" width="960" height="1280" loading="lazy" decoding="async" />
+          </picture>
         </a>
         <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <img src="fotos/doacao_computadores.jpeg" alt="Computadores recondicionados prontos para doação" width="960" height="1280" loading="lazy" decoding="async" />
+          <picture>
+            <source srcset="fotos/doacao_computadores.webp" type="image/webp" />
+            <img src="fotos/doacao_computadores.jpeg" alt="Computadores recondicionados prontos para doação" width="960" height="1280" loading="lazy" decoding="async" />
+          </picture>
         </a>
       </div>
     </div>

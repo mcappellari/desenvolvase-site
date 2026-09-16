@@ -561,6 +561,13 @@ main:focus {
    (height: 800px), então fixar só a largura estica o logo. Deixando os
    dois em auto e limitando por max-*, a proporção manda e a imagem se
    ajusta ao lado mais apertado do slide 4/3. */
+/* o <picture> e só um invólucro de escolha de formato. Sem isto ele
+   viraria o item flex do slide, e o max-width: 60% do logo passaria a
+   medir contra ele em vez de contra o slide. */
+picture {
+  display: contents;
+}
+
 .hero-logo {
   width: auto;
   height: auto;
