@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Desenvolva-se | Raízes Fortes, Futuro Brilhante</title>
-  <meta name="description" content="Desenvolva-se é uma organização de Porto Alegre - RS que promove aulas de informática e música, recondicionamento de computadores (tiConectaRS) e ações sociais para jovens e comunidades vulneráveis." />
+  <meta name="description"
+    content="Desenvolva-se é uma organização de Porto Alegre - RS que promove aulas de informática e música, recondicionamento de computadores (tiConectaRS) e ações sociais para jovens e comunidades vulneráveis." />
   <link rel="canonical" href="https://desenvolvase.org.br/" />
   <!-- primeiro quadro do carrossel: é o LCP da home, então busca prioritária -->
   <!-- o type faz o navegador sem suporte a WebP ignorar este preload e
@@ -14,12 +16,14 @@
   <meta property="og:site_name" content="Desenvolva-se" />
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:title" content="Desenvolva-se | Raízes Fortes, Futuro Brilhante" />
-  <meta property="og:description" content="Organização de Porto Alegre - RS que promove tecnologia, música, recondicionamento de computadores (tiConectaRS) e ações sociais para jovens e comunidades vulneráveis." />
+  <meta property="og:description"
+    content="Organização de Porto Alegre - RS que promove tecnologia, música, recondicionamento de computadores (tiConectaRS) e ações sociais para jovens e comunidades vulneráveis." />
   <meta property="og:image" content="https://desenvolvase.org.br/fotos/foto1-sala-tecnologia.jpeg" />
   <meta property="og:url" content="https://desenvolvase.org.br/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Desenvolva-se | Raízes Fortes, Futuro Brilhante" />
-  <meta name="twitter:description" content="Organização de Porto Alegre - RS que promove tecnologia, música, recondicionamento de computadores (tiConectaRS) e ações sociais para jovens e comunidades vulneráveis." />
+  <meta name="twitter:description"
+    content="Organização de Porto Alegre - RS que promove tecnologia, música, recondicionamento de computadores (tiConectaRS) e ações sociais para jovens e comunidades vulneráveis." />
   <meta name="twitter:image" content="https://desenvolvase.org.br/fotos/foto1-sala-tecnologia.jpeg" />
   <script type="application/ld+json">
   {
@@ -49,17 +53,21 @@
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" type="image/png" href="logo_desenvolvase_web.png" />
 </head>
+
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo"><img src="logo_desenvolvase_web.png" alt="Logo Desenvolva-se" class="logo-img" />Desenvolva<span>-se</span></a>
+      <a href="index.html" class="logo"><img src="logo_desenvolvase_web.png" alt="Logo Desenvolva-se"
+          class="logo-img" />Desenvolva<span>-se</span></a>
       <nav class="main-nav" id="main-nav">
         <ul>
           <li><a href="index.html">Início</a></li>
@@ -98,273 +106,283 @@
 
   <main id="conteudo" tabindex="-1">
 
-  <section class="hero">
-    <div class="container hero-inner">
-      <div>
-        <h1>Raízes Fortes, Futuro Brilhante</h1>
-        <p class="lead">Assim como uma árvore, começamos pelas raízes: educação, tecnologia e acolhimento plantados em Porto Alegre. Delas brotam folhas de conhecimento, desabrocham flores de talento e autoestima, e nascem frutos concretos — jovens mais preparados, famílias mais amparadas, uma comunidade que cresce e colhe junto, um ramo de cada vez.</p>
-        <div class="btn-group">
-          <a href="contribua.html" class="btn btn-primary">Quero Contribuir</a>
-          <a href="voluntario.html" class="btn btn-outline">Seja Voluntário</a>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h1>Raízes Fortes, Futuro Brilhante</h1>
+          <p class="lead">Assim como uma árvore, começamos pelas raízes: educação, tecnologia e acolhimento plantados em
+            Porto Alegre. Delas brotam folhas de conhecimento, desabrocham flores de talento e autoestima, e nascem
+            frutos concretos — jovens mais preparados, famílias mais amparadas, uma comunidade que cresce e colhe junto,
+            um ramo de cada vez.</p>
+          <div class="btn-group">
+            <a href="contribua.html" class="btn btn-primary">Quero Contribuir</a>
+            <a href="voluntario.html" class="btn btn-outline">Seja Voluntário</a>
+          </div>
         </div>
-      </div>
-      <!--
+        <!--
         O primeiro quadro ja vem com a classe "active" no HTML e o CSS o
         deixa visivel: sem JavaScript, ou antes dele, o visitante ve a
         imagem em vez de um retangulo vazio. Os demais quadros sao
         preguicosos e ficam escondidos de leitores de tela ate entrarem.
       -->
-      <div class="hero-image hero-visual hero-carousel" id="hero-carousel"
-           role="group" aria-roledescription="carrossel" aria-label="Imagens do Desenvolva-se">
-        <div class="hero-slide slide-logo active">
-          <picture>
-            <source srcset="logo_desenvolvase_transparent.webp" type="image/webp" />
-            <img src="logo_desenvolvase_transparent.png" alt="Logo do Desenvolva-se: uma árvore cujo tronco são três figuras humanas e cujas raízes formam trilhas de circuito"
-               class="hero-logo" width="608" height="800" fetchpriority="high" decoding="async" />
-          </picture>
-        </div>
-        <div class="hero-slide" aria-hidden="true">
-          <picture>
-            <source data-srcset="fotos/foto1-sala-tecnologia.webp" type="image/webp" />
-            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/foto1-sala-tecnologia.jpeg" alt="Alunos em aula de tecnologia, com violões na parede ao fundo"
-               class="hero-photo" width="1280" height="591" decoding="async" />
-          </picture>
-          <span class="hero-caption">Turma 2025 · Tecnologia que Transforma</span>
-        </div>
-        <div class="hero-slide" aria-hidden="true">
-          <picture>
-            <source data-srcset="fotos/aula_musica.webp" type="image/webp" />
-            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/aula_musica.jpeg" alt="Turma de violão reunida com os instrutores"
-               class="hero-photo" width="1600" height="1200" decoding="async" />
-          </picture>
-          <span class="hero-caption">Aula de Violão · Música</span>
-        </div>
-        <div class="hero-slide" aria-hidden="true">
-          <picture>
-            <source data-srcset="fotos/doacao_computadores3.webp" type="image/webp" />
-            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/doacao_computadores3.jpeg" alt="Entrega de computadores recuperados a uma instituição parceira"
-               class="hero-photo" width="1280" height="960" decoding="async" />
-          </picture>
-          <span class="hero-caption">tiConectaRS · Equipamentos Entregues</span>
-        </div>
-        <div class="hero-slide" aria-hidden="true">
-          <picture>
-            <source data-srcset="fotos/foto3-acao-social.webp" type="image/webp" />
-            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/foto3-acao-social.jpeg" alt="Alunos e voluntários reunidos durante a campanha McDia Feliz"
-               class="hero-photo" width="1280" height="960" decoding="async" />
-          </picture>
-          <span class="hero-caption">McDia Feliz · Ações Sociais</span>
-        </div>
-        <div class="hero-slide" aria-hidden="true">
-          <picture>
-            <source data-srcset="fotos/foto4-acao-social.webp" type="image/webp" />
-            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/foto4-acao-social.jpeg" alt="Distribuição de doações de alimentos para famílias apoiadas"
-               class="hero-photo" width="1280" height="960" decoding="async" />
-          </picture>
-          <span class="hero-caption">Doação de Alimentos · Ações Sociais</span>
-        </div>
-        <div class="hero-slide" aria-hidden="true">
-          <picture>
-            <source data-srcset="fotos/doacao_computadores.webp" type="image/webp" />
-            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/doacao_computadores.jpeg" alt="Computadores recondicionados prontos para doação"
-               class="hero-photo" width="960" height="1280" decoding="async" />
-          </picture>
-          <span class="hero-caption">tiConectaRS · Equipamentos Recondicionados</span>
-        </div>
-        <div class="hero-slide" aria-hidden="true">
-          <picture>
-            <source data-srcset="fotos/doacao_gremio.webp" type="image/webp" />
-            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="fotos/doacao_gremio.jpeg" alt="Equipe do Desenvolva-se durante entrega de equipamentos no Instituto Geração Tricolor"
-               class="hero-photo" width="960" height="1280" decoding="async" />
-          </picture>
-          <span class="hero-caption">tiConectaRS · Entrega no Instituto Geração Tricolor</span>
-        </div>
-
-        <div class="hero-dots">
-          <button type="button" class="hero-pausa" id="hero-pausa" aria-pressed="false"
-                  aria-label="Pausar a troca automática de imagens">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="5" width="3.5" height="14" rx="1"/><rect x="13.5" y="5" width="3.5" height="14" rx="1"/></svg>
-          </button>
-          <span class="hero-dots-sep" aria-hidden="true"></span>
-          <button type="button" class="hero-dot active" aria-current="true" aria-label="Imagem 1 de 8: logo do Desenvolva-se"></button>
-          <button type="button" class="hero-dot" aria-label="Imagem 2 de 8: turma de tecnologia 2025"></button>
-          <button type="button" class="hero-dot" aria-label="Imagem 3 de 8: aula de violão"></button>
-          <button type="button" class="hero-dot" aria-label="Imagem 4 de 8: entrega de equipamentos do tiConectaRS"></button>
-          <button type="button" class="hero-dot" aria-label="Imagem 5 de 8: campanha McDia Feliz"></button>
-          <button type="button" class="hero-dot" aria-label="Imagem 6 de 8: doação de alimentos"></button>
-          <button type="button" class="hero-dot" aria-label="Imagem 7 de 8: equipamentos recondicionados"></button>
-          <button type="button" class="hero-dot" aria-label="Imagem 8 de 8: entrega no Instituto Geração Tricolor"></button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="tree-journey">
-  <section class="section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Raízes · O que plantamos</span>
-        <h2>Quatro ramos, a mesma árvore</h2>
-        <p>Cada ramo do Desenvolva-se contribui para gerar oportunidades reais de desenvolvimento profissional e humano.</p>
-      </div>
-      <div class="ramos-bento">
-        <div class="ramo-card icon-style span-wide">
-          <div class="ramo-icon tag-root">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 4 12l5 6"/><path d="M15 6l5 6-5 6"/></svg>
+        <div class="hero-image hero-visual hero-carousel" id="hero-carousel" role="group"
+          aria-roledescription="carrossel" aria-label="Imagens do Desenvolva-se">
+          <div class="hero-slide slide-logo active">
+            <picture>
+              <source srcset="logo_desenvolvase_transparent.webp" type="image/webp" />
+              <img src="logo_desenvolvase_transparent.png"
+                alt="Logo do Desenvolva-se: uma árvore cujo tronco são três figuras humanas e cujas raízes formam trilhas de circuito"
+                class="hero-logo" width="608" height="800" fetchpriority="high" decoding="async" />
+            </picture>
           </div>
-          <h3>Tecnologia que Transforma</h3>
-          <p>Formação gratuita de dois anos para estudantes de escola pública, do 9º ano ao 3º ano do ensino médio. Aos sábados de manhã, com voluntários que atuam no mercado de tecnologia.</p>
-          <a href="informatica.html">Saiba mais →</a>
-          <span class="ramo-tag root">Gratuito · 2 anos</span>
-        </div>
-        <div class="ramo-card icon-style span-narrow">
-          <div class="ramo-icon tag-trunk">
-            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21s-7-4.35-9.5-8.5C.7 9 2 5.5 5.5 5c2-.3 3.7.8 4.5 2.3C10.8 5.8 12.5 4.7 14.5 5 18 5.5 19.3 9 17.5 12.5 15 16.65 12 21 12 21Z"/></svg>
+          <div class="hero-slide" aria-hidden="true">
+            <picture>
+              <source data-srcset="fotos/foto1-sala-tecnologia.webp" type="image/webp" />
+              <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="fotos/foto1-sala-tecnologia.jpeg"
+                alt="Alunos em aula de tecnologia, com violões na parede ao fundo" class="hero-photo" width="1280"
+                height="591" decoding="async" />
+            </picture>
+            <span class="hero-caption">Turma 2025 · Tecnologia que Transforma</span>
           </div>
-          <h3>Ações Sociais</h3>
-          <p>Páscoa, agasalho, McDia Feliz, Dia das Crianças e Natal — campanhas que levam apoio concreto a famílias em situação de vulnerabilidade.</p>
-          <a href="acao-social.html">Saiba mais →</a>
-          <span class="ramo-tag trunk">6 campanhas por ano</span>
-        </div>
-        <div class="ramo-card icon-style span-narrow">
-          <div class="ramo-icon tag-trunk">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17.5V5.5l10-1.8v11.8"/><circle cx="7" cy="17.5" r="2.6" fill="currentColor" stroke="none"/><circle cx="17" cy="15.7" r="2.6" fill="currentColor" stroke="none"/></svg>
+          <div class="hero-slide" aria-hidden="true">
+            <picture>
+              <source data-srcset="fotos/aula_musica.webp" type="image/webp" />
+              <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="fotos/aula_musica.jpeg" alt="Turma de violão reunida com os instrutores" class="hero-photo"
+                width="1600" height="1200" decoding="async" />
+            </picture>
+            <span class="hero-caption">Aula de Violão · Música</span>
           </div>
-          <h3>Música</h3>
-          <p>Turmas de violão que despertam talento, disciplina e autoestima em crianças, jovens e adultos.</p>
-          <a href="musica.html">Saiba mais →</a>
-          <span class="ramo-tag trunk">Sábados de manhã</span>
-        </div>
-        <div class="ramo-card icon-style span-wide">
-          <div class="ramo-icon tag-root">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.36 0l2.14-2.14a4.5 4.5 0 0 0-6.36-6.36L11 6.64"/><path d="M14 10a4.5 4.5 0 0 0-6.36 0L5.5 12.14a4.5 4.5 0 0 0 6.36 6.36L13 17.36"/></svg>
+          <div class="hero-slide" aria-hidden="true">
+            <picture>
+              <source data-srcset="fotos/doacao_computadores3.webp" type="image/webp" />
+              <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="fotos/doacao_computadores3.jpeg"
+                alt="Entrega de computadores recuperados a uma instituição parceira" class="hero-photo" width="1280"
+                height="960" decoding="async" />
+            </picture>
+            <span class="hero-caption">tiConectaRS · Equipamentos Entregues</span>
           </div>
-          <h3>tiConectaRS</h3>
-          <p>Recebemos computadores usados, recuperamos e doamos para escolas, hospitais e instituições sociais.</p>
-          <a href="ticonectars.html">Saiba mais →</a>
-          <span class="ramo-tag root">Empresas e pessoas físicas</span>
-        </div>
-      </div>
-    </div>
-  </section>
+          <div class="hero-slide" aria-hidden="true">
+            <picture>
+              <source data-srcset="fotos/foto3-acao-social.webp" type="image/webp" />
+              <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="fotos/foto3-acao-social.jpeg"
+                alt="Alunos e voluntários reunidos durante a campanha McDia Feliz" class="hero-photo" width="1280"
+                height="960" decoding="async" />
+            </picture>
+            <span class="hero-caption">McDia Feliz · Ações Sociais</span>
+          </div>
+          <div class="hero-slide" aria-hidden="true">
+            <picture>
+              <source data-srcset="fotos/foto4-acao-social.webp" type="image/webp" />
+              <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="fotos/foto4-acao-social.jpeg"
+                alt="Distribuição de doações de alimentos para famílias apoiadas" class="hero-photo" width="1280"
+                height="960" decoding="async" />
+            </picture>
+            <span class="hero-caption">Doação de Alimentos · Ações Sociais</span>
+          </div>
+          <div class="hero-slide" aria-hidden="true">
+            <picture>
+              <source data-srcset="fotos/doacao_computadores.webp" type="image/webp" />
+              <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="fotos/doacao_computadores.jpeg" alt="Computadores recondicionados prontos para doação"
+                class="hero-photo" width="960" height="1280" decoding="async" />
+            </picture>
+            <span class="hero-caption">tiConectaRS · Equipamentos Recondicionados</span>
+          </div>
+          <div class="hero-slide" aria-hidden="true">
+            <picture>
+              <source data-srcset="fotos/doacao_gremio.webp" type="image/webp" />
+              <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="fotos/doacao_gremio.jpeg"
+                alt="Equipe do Desenvolva-se durante entrega de equipamentos no Instituto Geração Tricolor"
+                class="hero-photo" width="960" height="1280" decoding="async" />
+            </picture>
+            <span class="hero-caption">tiConectaRS · Entrega no Instituto Geração Tricolor</span>
+          </div>
 
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Frutos · O que já colhemos</span>
-        <h2>Números que contam nossa história</h2>
+          <div class="hero-dots">
+            <button type="button" class="hero-pausa" id="hero-pausa" aria-pressed="false"
+              aria-label="Pausar a troca automática de imagens">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <rect x="7" y="5" width="3.5" height="14" rx="1" />
+                <rect x="13.5" y="5" width="3.5" height="14" rx="1" />
+              </svg>
+            </button>
+            <span class="hero-dots-sep" aria-hidden="true"></span>
+            <button type="button" class="hero-dot active" aria-current="true"
+              aria-label="Imagem 1 de 8: logo do Desenvolva-se"></button>
+            <button type="button" class="hero-dot" aria-label="Imagem 2 de 8: turma de tecnologia 2025"></button>
+            <button type="button" class="hero-dot" aria-label="Imagem 3 de 8: aula de violão"></button>
+            <button type="button" class="hero-dot"
+              aria-label="Imagem 4 de 8: entrega de equipamentos do tiConectaRS"></button>
+            <button type="button" class="hero-dot" aria-label="Imagem 5 de 8: campanha McDia Feliz"></button>
+            <button type="button" class="hero-dot" aria-label="Imagem 6 de 8: doação de alimentos"></button>
+            <button type="button" class="hero-dot" aria-label="Imagem 7 de 8: equipamentos recondicionados"></button>
+            <button type="button" class="hero-dot"
+              aria-label="Imagem 8 de 8: entrega no Instituto Geração Tricolor"></button>
+          </div>
+        </div>
       </div>
-      <div class="stats">
-        <div>
-          <div class="stat-number" data-count="8" data-suffix="+">8+</div>
-          <div class="stat-label">Anos de atuação</div>
-        </div>
-        <div>
-          <div class="stat-number" data-count="140" data-suffix="+">140+</div>
-          <div class="stat-label">Alunos impactados</div>
-        </div>
-        <div>
-          <div class="stat-number" data-count="500" data-suffix="+">500+</div>
-          <div class="stat-label">Famílias apoiadas com doações</div>
-        </div>
-        <div>
-          <div class="stat-number" data-count="1500" data-suffix="+">1.500+</div>
-          <div class="stat-label">Equipamentos doados</div>
-        </div>
-      </div>
-      <p class="stats-nota">Números informados pela coordenação do projeto. Atualizado em setembro de 2026.</p>
-    </div>
-  </section>
+    </section>
 
-  <section class="section-alt instagram-block">
-    <div class="container">
-      <span class="eyebrow">A copa · Nosso dia a dia</span>
-      <h2 class="instagram-heading">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
-        Acompanhe o dia a dia @desenvolvase.projeto
-      </h2>
-      <p>Aulas, campanhas, entregas e bastidores: é no Instagram que a gente conta o dia a dia do projeto, quase em tempo real.</p>
-      <a href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener" class="btn btn-outline">Seguir no Instagram</a>
-      <!--
-        Feed automático do Instagram: veja "5. Feed automático do Instagram"
-        no SETUP.md. Depois de criar sua conta no Behold.so (ou SnapWidget) e
-        conectar o Instagram @desenvolvase.projeto, cole o código de incorporação
-        deles logo abaixo, substituindo todo o bloco ".instagram-grid" pelo
-        script/iframe fornecido. Até lá, os links abaixo funcionam como
-        substituto temporário.
+    <div class="tree-journey">
+      <section class="section-alt">
+        <div class="container">
+          <div class="section-header">
+            <span class="eyebrow">Raízes · O que plantamos</span>
+            <h2>Quatro ramos, a mesma árvore</h2>
+            <p>Cada ramo do Desenvolva-se contribui para gerar oportunidades reais de desenvolvimento profissional e
+              humano.</p>
+          </div>
+          <div class="ramos-bento">
+            <div class="ramo-card icon-style span-wide">
+              <div class="ramo-icon tag-root">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M9 6 4 12l5 6" />
+                  <path d="M15 6l5 6-5 6" />
+                </svg>
+              </div>
+              <h3>Tecnologia que Transforma</h3>
+              <p>Formação gratuita de dois anos para estudantes de escola pública, do 9º ano ao 3º ano do ensino médio.
+                Aos sábados de manhã, com voluntários que atuam no mercado de tecnologia.</p>
+              <a href="informatica.html">Saiba mais →</a>
+              <span class="ramo-tag root">Gratuito · 2 anos</span>
+            </div>
+            <div class="ramo-card icon-style span-narrow">
+              <div class="ramo-icon tag-trunk">
+                <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                  <path
+                    d="M12 21s-7-4.35-9.5-8.5C.7 9 2 5.5 5.5 5c2-.3 3.7.8 4.5 2.3C10.8 5.8 12.5 4.7 14.5 5 18 5.5 19.3 9 17.5 12.5 15 16.65 12 21 12 21Z" />
+                </svg>
+              </div>
+              <h3>Ações Sociais</h3>
+              <p>Páscoa, agasalho, McDia Feliz, Dia das Crianças e Natal — campanhas que levam apoio concreto a famílias
+                em situação de vulnerabilidade.</p>
+              <a href="acao-social.html">Saiba mais →</a>
+              <span class="ramo-tag trunk">6 campanhas por ano</span>
+            </div>
+            <div class="ramo-card icon-style span-narrow">
+              <div class="ramo-icon tag-trunk">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 17.5V5.5l10-1.8v11.8" />
+                  <circle cx="7" cy="17.5" r="2.6" fill="currentColor" stroke="none" />
+                  <circle cx="17" cy="15.7" r="2.6" fill="currentColor" stroke="none" />
+                </svg>
+              </div>
+              <h3>Música</h3>
+              <p>Turmas de violão que despertam talento, disciplina e autoestima em crianças, jovens e adultos.</p>
+              <a href="musica.html">Saiba mais →</a>
+              <span class="ramo-tag trunk">Sábados de manhã</span>
+            </div>
+            <div class="ramo-card icon-style span-wide">
+              <div class="ramo-icon tag-root">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M10 14a4.5 4.5 0 0 0 6.36 0l2.14-2.14a4.5 4.5 0 0 0-6.36-6.36L11 6.64" />
+                  <path d="M14 10a4.5 4.5 0 0 0-6.36 0L5.5 12.14a4.5 4.5 0 0 0 6.36 6.36L13 17.36" />
+                </svg>
+              </div>
+              <h3>tiConectaRS</h3>
+              <p>Recebemos computadores usados, recuperamos e doamos para escolas, hospitais e instituições sociais.</p>
+              <a href="ticonectars.html">Saiba mais →</a>
+              <span class="ramo-tag root">Empresas e pessoas físicas</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-header">
+            <span class="eyebrow">Frutos · O que já colhemos</span>
+            <h2>Números que contam nossa história</h2>
+          </div>
+          <div class="stats">
+            <div>
+              <div class="stat-number" data-count="8" data-suffix="+">8+</div>
+              <div class="stat-label">Anos de atuação</div>
+            </div>
+            <div>
+              <div class="stat-number" data-count="140" data-suffix="+">140+</div>
+              <div class="stat-label">Alunos impactados</div>
+            </div>
+            <div>
+              <div class="stat-number" data-count="500" data-suffix="+">500+</div>
+              <div class="stat-label">Famílias apoiadas com doações</div>
+            </div>
+            <div>
+              <div class="stat-number" data-count="1500" data-suffix="+">1.500+</div>
+              <div class="stat-label">Equipamentos doados</div>
+            </div>
+          </div>
+          <p class="stats-nota">Números informados pela coordenação do projeto. Atualizado em setembro de 2026.</p>
+        </div>
+      </section>
+
+      <section class="section-alt instagram-block">
+        <div class="container">
+          <span class="eyebrow">A copa · Nosso dia a dia</span>
+          <h2 class="instagram-heading">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" />
+            </svg>
+            Acompanhe o dia a dia @desenvolvase.projeto
+          </h2>
+          <p>Aulas, campanhas, entregas e bastidores: é no Instagram que a gente conta o dia a dia do projeto, quase em
+            tempo real.</p>
+          <a href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener"
+            class="btn btn-outline">Seguir no Instagram</a>
+          <!--
+        Feed do Instagram, servido pelo Behold. Substituiu a grade de fotos
+        fixas: agora a faixa se atualiza sozinha a cada post, sem ninguém
+        editar o site. O feed-id identifica a conta no painel do Behold;
+        trocá-lo aponta a faixa para outro feed. Veja "5. Feed automático
+        do Instagram" no SETUP.md.
+
+        O script vem de w.behold.so, ou seja, o navegador do visitante se
+        conecta a um terceiro, que passa a ver o IP de quem acessa. Isso
+        precisa constar da política de privacidade.
       -->
-      <div class="instagram-grid">
-        <!--
-          Estas fotos eram background-image de CSS, que o navegador baixa
-          no carregamento mesmo estando abaixo da dobra — fundo de CSS não
-          aceita loading="lazy". Como <img> elas adiam de verdade e ainda
-          ganham alt próprio.
-        -->
-        <a class="ph wide" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <picture>
-            <source srcset="fotos/foto3-acao-social.webp" type="image/webp" />
-            <img src="fotos/foto3-acao-social.jpeg" alt="Alunos e voluntários reunidos durante a campanha McDia Feliz" width="1280" height="960" loading="lazy" decoding="async" />
-          </picture>
-        </a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <picture>
-            <source srcset="fotos/foto1-sala-tecnologia.webp" type="image/webp" />
-            <img src="fotos/foto1-sala-tecnologia.jpeg" alt="Alunos em aula de tecnologia, com violões na parede ao fundo" width="1280" height="591" loading="lazy" decoding="async" />
-          </picture>
-        </a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <picture>
-            <source srcset="fotos/aula_musica.webp" type="image/webp" />
-            <img src="fotos/aula_musica.jpeg" alt="Turma de violão reunida com os instrutores" width="1600" height="1200" loading="lazy" decoding="async" />
-          </picture>
-        </a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <picture>
-            <source srcset="fotos/doacao_computadores3.webp" type="image/webp" />
-            <img src="fotos/doacao_computadores3.jpeg" alt="Entrega de computadores recuperados a uma instituição parceira" width="1280" height="960" loading="lazy" decoding="async" />
-          </picture>
-        </a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <picture>
-            <source srcset="fotos/foto4-acao-social.webp" type="image/webp" />
-            <img src="fotos/foto4-acao-social.jpeg" alt="Distribuição de doações de alimentos para famílias apoiadas" width="1280" height="960" loading="lazy" decoding="async" />
-          </picture>
-        </a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <picture>
-            <source srcset="fotos/doacao_gremio.webp" type="image/webp" />
-            <img src="fotos/doacao_gremio.jpeg" alt="Equipe do Desenvolva-se durante entrega de equipamentos no Instituto Geração Tricolor" width="960" height="1280" loading="lazy" decoding="async" />
-          </picture>
-        </a>
-        <a class="ph" href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">
-          <picture>
-            <source srcset="fotos/doacao_computadores.webp" type="image/webp" />
-            <img src="fotos/doacao_computadores.jpeg" alt="Computadores recondicionados prontos para doação" width="960" height="1280" loading="lazy" decoding="async" />
-          </picture>
-        </a>
-      </div>
+          <behold-widget feed-id="bbvSAOHI3sKctdziVRVA"></behold-widget>
+          <script>
+            (() => {
+              if (window.__bhldScript) return; window.__bhldScript = true;
+              const d = document, s = d.createElement("script"); s.type = "module";
+              s.src = "https://w.behold.so/widget.js"; setTimeout(() => { d.head.append(s); }, 0);
+            })();
+          </script>
+        </div>
+      </section>
     </div>
-  </section>
-  </div>
 
-  <section class="cta-band">
-    <div class="container">
-      <h2>Faça parte dessa transformação</h2>
-      <p>Sua doação, seu tempo como voluntário ou a doação de um computador usado podem mudar a trajetória de um jovem.</p>
-      <div class="btn-group" style="justify-content:center">
-        <a href="contribua.html" class="btn btn-primary">Doar via PIX</a>
-        <a href="voluntario.html" class="btn btn-outline">Ser Voluntário</a>
-        <a href="ticonectars.html" class="btn btn-outline">Doar um Computador</a>
+    <section class="cta-band">
+      <div class="container">
+        <h2>Faça parte dessa transformação</h2>
+        <p>Sua doação, seu tempo como voluntário ou a doação de um computador usado podem mudar a trajetória de um
+          jovem.</p>
+        <div class="btn-group" style="justify-content:center">
+          <a href="contribua.html" class="btn btn-primary">Doar via PIX</a>
+          <a href="voluntario.html" class="btn btn-outline">Ser Voluntário</a>
+          <a href="ticonectars.html" class="btn btn-outline">Doar um Computador</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <p class="logo"><img src="logo_desenvolvase_web.png" alt="Logo Desenvolva-se" class="logo-img footer-logo-img" />Desenvolva<span>-se</span></p>
+        <p class="logo"><img src="logo_desenvolvase_web.png" alt="Logo Desenvolva-se"
+            class="logo-img footer-logo-img" />Desenvolva<span>-se</span></p>
         <p>Raízes fortes, futuro brilhante.</p>
         <p>Porto Alegre - RS</p>
       </div>
@@ -389,7 +407,8 @@
       <div>
         <h3>Contato</h3>
         <p><a href="https://wa.me/5551984406121" target="_blank" rel="noopener">WhatsApp: (51) 98440-6121</a></p>
-        <p><a href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">Instagram: @desenvolvase.projeto</a></p>
+        <p><a href="https://www.instagram.com/desenvolvase.projeto/" target="_blank" rel="noopener">Instagram:
+            @desenvolvase.projeto</a></p>
         <p>CNPJ: 61.023.657/0001-69</p>
       </div>
     </div>
@@ -398,10 +417,15 @@
     </div>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/5551984406121" target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">
-    <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.607 1.902 6.47L4 29l7.72-1.858A11.94 11.94 0 0 0 16.001 27C22.63 27 28 21.627 28 15S22.63 3 16.001 3Zm6.994 16.982c-.297.836-1.47 1.53-2.406 1.727-.64.135-1.475.243-4.285-.92-3.594-1.487-5.906-5.13-6.086-5.367-.176-.238-1.457-1.938-1.457-3.696 0-1.758.92-2.622 1.246-2.98.326-.358.71-.448.947-.448.238 0 .475.002.682.012.219.01.512-.083.8.611.297.712 1.008 2.469 1.096 2.65.088.181.146.393.03.63-.117.238-.176.386-.35.594-.176.207-.37.463-.53.622-.176.176-.36.367-.155.723.207.356.918 1.517 1.973 2.457 1.356 1.207 2.5 1.582 2.855 1.76.356.176.564.148.771-.09.207-.238.887-1.034 1.125-1.39.238-.356.475-.297.8-.178.326.117 2.078.98 2.434 1.158.356.178.594.267.68.416.088.148.088.86-.208 1.697Z"/></svg>
+  <a class="whatsapp-float" href="https://wa.me/5551984406121" target="_blank" rel="noopener"
+    aria-label="Fale conosco pelo WhatsApp">
+    <svg viewBox="0 0 32 32">
+      <path
+        d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.607 1.902 6.47L4 29l7.72-1.858A11.94 11.94 0 0 0 16.001 27C22.63 27 28 21.627 28 15S22.63 3 16.001 3Zm6.994 16.982c-.297.836-1.47 1.53-2.406 1.727-.64.135-1.475.243-4.285-.92-3.594-1.487-5.906-5.13-6.086-5.367-.176-.238-1.457-1.938-1.457-3.696 0-1.758.92-2.622 1.246-2.98.326-.358.71-.448.947-.448.238 0 .475.002.682.012.219.01.512-.083.8.611.297.712 1.008 2.469 1.096 2.65.088.181.146.393.03.63-.117.238-.176.386-.35.594-.176.207-.37.463-.53.622-.176.176-.36.367-.155.723.207.356.918 1.517 1.973 2.457 1.356 1.207 2.5 1.582 2.855 1.76.356.176.564.148.771-.09.207-.238.887-1.034 1.125-1.39.238-.356.475-.297.8-.178.326.117 2.078.98 2.434 1.158.356.178.594.267.68.416.088.148.088.86-.208 1.697Z" />
+    </svg>
   </a>
 
   <script src="js/main.js"></script>
 </body>
+
 </html>
