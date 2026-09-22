@@ -1,5 +1,24 @@
 {
+  "platform": {
+    "apiRuntime": "node:18"
+  },
   "routes": [
+    {
+      "route": "/entrar",
+      "redirect": "/.auth/login/aad"
+    },
+    {
+      "route": "/sair",
+      "redirect": "/.auth/logout"
+    },
+    {
+      "route": "/.auth/login/github",
+      "statusCode": 404
+    },
+    {
+      "route": "/api/*",
+      "allowedRoles": ["authenticated"]
+    },
     {
       "route": "/SETUP.md",
       "statusCode": 404

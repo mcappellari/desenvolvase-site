@@ -265,13 +265,15 @@ section {
 /* an outline button living inside a cream card/header needs the dark card ink instead */
 .site-header .btn-outline,
 .card .btn-outline,
-.form-card .btn-outline {
+.form-card .btn-outline,
+.app-cartao .btn-outline {
   color: var(--card-ink);
 }
 
 .site-header .btn-outline:hover,
 .card .btn-outline:hover,
-.form-card .btn-outline:hover {
+.form-card .btn-outline:hover,
+.app-cartao .btn-outline:hover {
   border-color: var(--card-accent);
   color: var(--card-accent);
 }

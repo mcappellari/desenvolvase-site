@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Área do Professor | Desenvolva-se</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../logo_desenvolvase_web.png" />
+  <style>
+    /* A área logada é ferramenta, não página de apresentação: o conteúdo
+       centraliza numa coluna estreita e o resto sai da frente. */
+    .app-shell {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      text-align: center;
+    }
+
+    .app-cartao {
+      width: 100%;
+      max-width: 440px;
+      background: var(--paper-raised);
+      color: var(--card-ink);
+      border-radius: var(--radius-m);
+      box-shadow: var(--shadow);
+      padding: 36px 28px;
+    }
+
+    .app-logo {
+      width: 64px;
+      height: 84px;
+      object-fit: contain;
+      margin-bottom: 18px;
+    }
+
+    .app-cartao h1 {
+      color: var(--card-ink);
+      font-size: 1.5rem;
+      margin: 0 0 10px;
+    }
+
+    .app-cartao p {
+      color: var(--card-ink-muted);
+      line-height: 1.6;
+      margin: 0 0 18px;
+    }
+
+    .app-identidade {
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      /* break-all quebra mesmo quando a palavra caberia na linha seguinte;
+         anywhere só quebra quando não há alternativa */
+      overflow-wrap: anywhere;
+      background: var(--card-inset);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin: 0 0 18px;
+    }
+
+    .app-papel {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--canopy-pastel);
+      color: var(--card-accent-deep);
+      border: 1px solid var(--canopy-deep);
+      border-radius: 999px;
+      padding: 5px 14px;
+      margin-bottom: 18px;
+    }
+
+    .app-rodape {
+      margin-top: 20px;
+      font-size: 0.86rem;
+    }
+
+    .app-rodape a {
+      display: inline-block;
+      /* leva o alvo de toque de 16px para os 24px da WCAG 2.5.8 */
+      padding: 4px 8px;
+      color: var(--card-accent);
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="app-shell">
+    <div class="app-cartao">
+      <img src="../logo_desenvolvase_transparent.webp" alt="" class="app-logo" />
+
+      <div id="estado" role="status" aria-live="polite">
+        <h1>Carregando…</h1>
+        <p>Um instante enquanto verificamos seu acesso.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var estado = document.getElementById("estado");
+
+      function mostrar(html) {
+        estado.innerHTML = html;
+      }
+
+      function escapar(texto) {
+        var d = document.createElement("div");
+        d.textContent = texto == null ? "" : String(texto);
+        return d.innerHTML;
+      }
+
+      function telaDeEntrada(motivo) {
+        mostrar(
+          "<h1>Área do Professor</h1>" +
+          "<p>" + escapar(motivo || "Entre com a conta Microsoft da organização para registrar a frequência.") + "</p>" +
+          '<a href="/entrar" class="btn btn-primary">Entrar com a conta Microsoft</a>' +
+          '<p class="app-rodape"><a href="/">Voltar ao site</a></p>'
+        );
+      }
+
+      function telaSemAcesso(dados) {
+        mostrar(
+          "<h1>Acesso ainda não liberado</h1>" +
+          '<p class="app-identidade">' + escapar(dados.email) + "</p>" +
+          "<p>" + escapar(dados.mensagem) + "</p>" +
+          '<a href="/sair" class="btn btn-outline">Sair</a>' +
+          '<p class="app-rodape"><a href="/">Voltar ao site</a></p>'
+        );
+      }
+
+      function telaAutorizado(dados) {
+        var ramos = dados.ramos === "*"
+          ? "todos os ramos"
+          : (dados.ramos || []).join(", ") || "nenhum ramo atribuído";
+        mostrar(
+          "<h1>Olá!</h1>" +
+          '<p class="app-identidade">' + escapar(dados.email) + "</p>" +
+          '<span class="app-papel">' + escapar(dados.papel) + "</span>" +
+          "<p>Você tem acesso a <strong>" + escapar(ramos) + "</strong>.</p>" +
+          "<p>A tela de chamada ainda está sendo construída. Esta página existe " +
+          "para confirmar que o login e a permissão funcionam.</p>" +
+          '<a href="/sair" class="btn btn-outline">Sair</a>' +
+          '<p class="app-rodape"><a href="/">Voltar ao site</a></p>'
+        );
+      }
+
+      fetch("/api/eu", { headers: { Accept: "application/json" } })
+        .then(function (resposta) {
+          /* 401 vem da própria plataforma quando ninguém entrou ainda — a
+             rota /api/* exige usuário autenticado. Não é erro: é o estado
+             normal de quem acabou de abrir a página. */
+          if (resposta.status === 401) {
+            telaDeEntrada();
+            return null;
+          }
+          return resposta.json().then(function (dados) {
+            return { status: resposta.status, dados: dados };
+          });
+        })
+        .then(function (resultado) {
+          if (!resultado) return;
+          if (resultado.status === 403) {
+            telaSemAcesso(resultado.dados);
+          } else if (resultado.status === 200 && resultado.dados.autorizado) {
+            telaAutorizado(resultado.dados);
+          } else {
+            telaDeEntrada(resultado.dados && resultado.dados.mensagem);
+          }
+        })
+        .catch(function () {
+          /* Sem rede, ou a API ainda não foi publicada. Dizer a verdade vale
+             mais que uma tela em branco. */
+          mostrar(
+            "<h1>Não foi possível verificar seu acesso</h1>" +
+            "<p>Pode ser a conexão, ou o sistema pode estar sendo atualizado. " +
+            "Tente de novo em instantes.</p>" +
+            '<a href="/app/" class="btn btn-outline">Tentar de novo</a>' +
+            '<p class="app-rodape"><a href="/">Voltar ao site</a></p>'
+          );
+        });
+    })();
+  </script>
+
+</body>
+
+</html>

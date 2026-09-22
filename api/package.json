@@ -1,0 +1,6 @@
+{
+  "name": "desenvolvase-api",
+  "version": "1.0.0",
+  "description": "Funcoes da area logada do Desenvolva-se. Sem dependencias de proposito: nada para instalar, nada para atualizar, nada que apodreca parado.",
+  "private": true
+}
