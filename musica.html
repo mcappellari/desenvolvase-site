@@ -253,7 +253,16 @@
             <textarea id="mus-mensagem" name="mensagem" autocomplete="off" rows="3" placeholder="Conte se já tocou alguma vez, ou se está começando do zero — os dois são bem-vindos."></textarea>
           </div>
         </div>
-        <p class="form-nota"><strong>O que acontece depois:</strong> sua resposta vai para uma planilha privada do projeto, que só a coordenação acessa. O retorno vem pelo WhatsApp ou e-mail que você informar.</p>
+        <div class="form-consentimento">
+          <label>
+            <input type="checkbox" name="consentimento" required
+              value="Sim, sou o responsável legal e autorizo o uso dos dados" />
+            <span>Sou o pai, a mãe ou o responsável legal deste aluno e autorizo o Desenvolva-se a
+              usar estes dados para tratar da matrícula. Leia a
+              <a href="privacidade.html">Política de Privacidade</a>.</span>
+          </label>
+        </div>
+        <p class="form-nota"><strong>O que acontece depois:</strong> sua resposta vai para uma planilha privada do projeto, que só a coordenação acessa. O retorno vem pelo WhatsApp ou e-mail que você informar. Detalhes na <a href="privacidade.html">Política de Privacidade</a>.</p>
         <button type="submit" class="btn btn-primary">Entrar na lista de espera</button>
         <p class="form-status" role="status"></p>
       </form>
@@ -297,6 +306,7 @@
     </div>
     <div class="container footer-bottom">
       <p>&copy; <span id="year"></span> Desenvolva-se. Todos os direitos reservados.</p>
+      <p class="footer-legal"><a href="privacidade.html">Política de Privacidade</a></p>
     </div>
   </footer>
 
