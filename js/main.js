@@ -371,6 +371,21 @@ function initScrollReveal() {
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
+        /* will-change promove uma camada de composicao e, deixado no CSS,
+           ficava ligado para sempre em dezenas de elementos. Aqui ele vive
+           so durante a transicao: avisa o navegador na hora certa e
+           devolve a memoria quando termina. */
+        const alvo = entry.target;
+        alvo.style.willChange = "opacity, transform";
+        const limpar = () => { alvo.style.willChange = ""; };
+        alvo.addEventListener("transitionend", limpar, { once: true });
+        /* Rede de seguranca: um elemento ja visivel no carregamento recebe
+           "in-view" no mesmo quadro em que ganha "reveal". Sem mudanca de
+           estilo observada nao ha transicao, e sem transicao o evento
+           acima nunca dispara — deixando a camada promovida para sempre
+           justamente nos elementos do topo. 800ms cobrem a transicao de
+           450 mais o escalonamento maximo de 180. */
+        window.setTimeout(limpar, 800);
         entry.target.classList.add("in-view");
         observer.unobserve(entry.target);
       });
@@ -380,7 +395,11 @@ function initScrollReveal() {
 
   els.forEach((el, index) => {
     el.classList.add("reveal");
-    el.style.transitionDelay = `${(index % 4) * 90}ms`;
+    /* 60ms entre itens: a referencia situa o escalonamento confortavel
+       entre 30 e 80ms. A 90ms o quarto item do grupo comecava 270ms
+       atrasado sobre uma transicao que ja durava 600 — quase 900ms ate
+       assentar. */
+    el.style.transitionDelay = `${(index % 4) * 60}ms`;
     observer.observe(el);
   });
 }
