@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeroCarousel();
   initContatoConsole();
   initPixCopy();
+  initFeedInstagram();
 });
 
 /**
@@ -447,6 +448,51 @@ const WHATSAPP_NUMERO = "5551984406121";
 
 function backendConectado() {
   return Boolean(GOOGLE_SCRIPT_URL) && !GOOGLE_SCRIPT_URL.startsWith("COLE_AQUI");
+}
+
+/* O feed do Instagram vem de um terceiro que a organizacao nao controla.
+   Quando ele nao carrega — bloqueador, economia de dados, rede restrita,
+   falha do fornecedor — a secao ficava com titulo, botao e um vazio, sem
+   ninguem saber que algo quebrou. Aqui a pagina admite a falha e mostra
+   fotos proprias no lugar. */
+function initFeedInstagram() {
+  const widget = document.querySelector("behold-widget");
+  const reserva = document.getElementById("ig-reserva");
+  if (!widget || !reserva) return;
+
+  /* Altura e o teste honesto: o elemento pode existir e estar vazio. Um
+     feed renderizado passa facil dos 120px; um elemento nao atualizado
+     fica perto de zero. */
+  const entregou = () => widget.getBoundingClientRect().height > 120;
+
+  const decidir = () => {
+    if (entregou()) return;
+    widget.hidden = true;
+    reserva.hidden = false;
+    rastrear("instagram_reserva_exibida");
+  };
+
+  /* A contagem so comeca quando a secao entra em tela.
+     A versao anterior disparava 6s depois do carregamento e media o widget
+     com a secao ainda muito abaixo da dobra — onde ele legitimamente ainda
+     nao renderizou. O resultado era trocar um feed que funcionava pela
+     reserva, para quase todo visitante. Quem nunca chega ate aqui tambem
+     nunca precisa da decisao. */
+  const seccao = widget.closest("section") || widget.parentElement;
+  if (!("IntersectionObserver" in window)) {
+    window.setTimeout(decidir, 6000);
+    return;
+  }
+
+  const observador = new IntersectionObserver((entradas) => {
+    if (!entradas.some((e) => e.isIntersecting)) return;
+    observador.disconnect();
+    /* Seis segundos a partir daqui cobrem uma conexao lenta sem deixar o
+       visitante olhando para um buraco. */
+    window.setTimeout(decidir, 6000);
+  }, { rootMargin: "200px" });
+
+  observador.observe(seccao);
 }
 
 function initForms() {

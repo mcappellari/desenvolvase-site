@@ -2997,3 +2997,74 @@ a.channel:hover .channel-go svg {
 .form-consentimento span {
   color: var(--card-ink);
 }
+
+/* =========================================================
+   Faixa de inscrição — o caminho que faltava
+   ========================================================= */
+
+/* A home tinha quatro portas para doar e nenhuma para matricular: as
+   palavras "inscrição", "matrícula" e "vaga" não apareciam uma vez. Esta
+   faixa existe para o público que o projeto existe para servir.
+
+   Superfície creme de propósito: é o oposto de tudo que a cerca, então
+   chega como interrupção e não como mais uma seção verde. É o momento
+   mais alto da página antes do pedido de doação — e vem antes dele
+   porque matricular um filho é a conversão que sustenta o projeto. */
+.band-inscricao {
+  background: var(--paper-raised);
+  color: var(--card-ink);
+  text-align: center;
+  padding: var(--s-9) 0;
+}
+
+.band-inscricao h2 {
+  color: var(--card-ink);
+  margin-bottom: var(--s-4);
+}
+
+.band-texto {
+  max-width: 58ch;
+  margin: 0 auto var(--s-6);
+  color: var(--card-ink-muted);
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+}
+
+.band-texto strong {
+  color: var(--card-ink);
+}
+
+/* =========================================================
+   Reserva do feed do Instagram
+   ========================================================= */
+
+.ig-reserva-aviso {
+  color: var(--ink-muted);
+  font-size: var(--fs-body-sm);
+  margin-bottom: var(--s-5);
+}
+
+.ig-reserva-fotos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+}
+
+.ig-reserva-fotos img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-m);
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .ig-reserva-fotos {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* a terceira ficaria sozinha numa linha; some em vez de abrir buraco */
+  .ig-reserva-fotos img:last-child {
+    display: none;
+  }
+}

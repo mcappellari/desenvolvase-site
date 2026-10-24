@@ -250,7 +250,7 @@
               <h3>Tecnologia que Transforma</h3>
               <p>Formação gratuita de dois anos para estudantes de escola pública, do 9º ano ao 3º ano do ensino médio.
                 Aos sábados de manhã, com voluntários que atuam no mercado de tecnologia.</p>
-              <a href="informatica.html">Saiba mais →</a>
+              <a href="informatica.html#inscricao">Como participar →</a>
               <span class="ramo-tag root">Gratuito · 2 anos</span>
             </div>
             <div class="ramo-card icon-style span-narrow">
@@ -352,6 +352,27 @@
         precisa constar da política de privacidade.
       -->
           <behold-widget feed-id="bbvSAOHI3sKctdziVRVA"></behold-widget>
+
+          <!--
+            Conteudo de reserva. O widget vem de um terceiro (w.behold.so) e
+            pode nao carregar: bloqueador de anuncios, modo de economia de
+            dados, rede de escola, ou falha do proprio fornecedor. Sem isto a
+            secao virava titulo, botao e um vazio — e ninguem ficava sabendo
+            que algo quebrou. O initFeedInstagram() em js/main.js revela este
+            bloco quando o widget nao renderiza.
+          -->
+          <div class="ig-reserva" id="ig-reserva" hidden>
+            <p class="ig-reserva-aviso">Não foi possível carregar o feed agora. Enquanto isso, três momentos
+              recentes do projeto:</p>
+            <div class="ig-reserva-fotos">
+              <img src="fotos/foto1-sala-tecnologia.webp" alt="Alunos em aula de tecnologia, com violões na parede ao fundo"
+                loading="lazy" decoding="async" width="1280" height="591" />
+              <img src="fotos/aula_musica.webp" alt="Turma de violão reunida com os instrutores"
+                loading="lazy" decoding="async" width="1400" height="1050" />
+              <img src="fotos/doacao_gremio.webp" alt="Entrega de computadores recuperados a uma instituição parceira"
+                loading="lazy" decoding="async" width="1050" height="1400" />
+            </div>
+          </div>
           <script>
             (() => {
               if (window.__bhldScript) return; window.__bhldScript = true;
@@ -362,6 +383,16 @@
         </div>
       </section>
     </div>
+
+    <section class="band-inscricao">
+      <div class="container">
+        <h2>Quer inscrever um jovem?</h2>
+        <p class="band-texto">O Tecnologia que Transforma é <strong>gratuito</strong>, acontece aos
+          <strong>sábados pela manhã</strong> e é para quem estuda em <strong>escola pública</strong>, do 9º ano do
+          fundamental ao 3º ano do ensino médio. As turmas começam em março, junto com o ano letivo.</p>
+        <a href="informatica.html#inscricao" class="btn btn-primary">Ver como inscrever</a>
+      </div>
+    </section>
 
     <section class="cta-band">
       <div class="container">
@@ -400,7 +431,7 @@
         <ul>
           <li><a href="voluntario.html">Venha ser Voluntário</a></li>
           <li><a href="contribua.html">Doação Financeira</a></li>
-          <li><a href="cadastro-alunos.html">Área do Aluno</a></li>
+          <li><a href="cadastro-alunos.html">Área do aluno matriculado</a></li>
           <li><a href="contato.html">Contato</a></li>
         </ul>
       </div>
